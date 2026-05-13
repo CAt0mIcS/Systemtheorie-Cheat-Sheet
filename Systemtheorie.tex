@@ -1283,7 +1283,7 @@
 
     %TODO Solow-Swan-Modell S.35
     \section{Systeme zweiten Grades}
-    \subsection{Differentialgleichungssystem aufstellen}
+    \subsection{Differentialgleichungssystem aufstellen - \textit{By Inspection}}
     \textbf{I. Gleichungssystem finden} mit z.B. Zustandsgrößen $u_C$ und $i_L$
     \begin{itemize}
         \item[a)] $\dot u_C$ in Abhängigkeit von $u_C$, $i_L$ und evtl. Quellen finden
@@ -1295,27 +1295,29 @@
         \item[b)] Erregungsvektor $\vec v=[u_0, i_0]^T$
         \item[c)] $\vec{\dot x}(t)=\ma A \vec x + \ma B \vec v$
     \end{itemize}
-    \textbf{III. Ausgangssignal $y$ durch die Zustandsvariablen ausdrücken und in Auskoppelmatrix und Durchgriffsmatrix zusammenfassen}
+    \textbf{III. Ausgangssignal $y$ (z.B. $u_{out}$) durch die Zustandsvariablen ausdrücken und in Auskoppelmatrix und Durchgriffsmatrix zusammenfassen}
     \begin{itemize}
-        \item[] $y=\ma C \vec x + \ma D + \vec v$
+        \item[] $y=\ma C \vec x + \ma D\vec v$
     \end{itemize}
-    \textbf{IV. Lösen der Zustandsgleichung}
+    \textbf{IV. Lösen der Zustandsgleichung} \\
+    Autonome Zustandsgleichung (Erregung konst.) \begin{equation*}
+        \vec x(t)=\underbrace{-\ma A^{-1}\ma B\vec v_0}_{x_\infty}+\exp(\ma A(t-t_0))(x_0+\underbrace{\ma A^{-1}\ma B\vec v_0}_{-x_\infty})
+    \end{equation*}
+
+    \subsection{Differentialgleichungssystem aufstellen - \textit{Zweitorbeschreibung}}
+    \textbf{I. Schaltung umzeichnen}\\
+    Zeichne die Schaltung so um, dass beide Reaktanzen an den äußeren Seiten sind.\\
+    \textbf{II. Matrix aufstellen} \\
+    Bestehend aus streng linearer Zweitorbeschreibung + Quellvektor $\rightarrow$ Linear
     \begin{itemize}
-        \item Autonome Zustandsgleichung \begin{equation*}
-                  \vec x(t)=\underbrace{-\ma A^{-1}\ma B\vec v_0}_{x_\infty}+\exp(\ma A(t-t_0))(x_0+\underbrace{\ma A^{-1}\ma B\vec v_0}_{-x_\infty})
-              \end{equation*}
-        \item Homogene Zustandsgleichung: $\vec{\dot x}(t)=\ma A \vec x(t)$
-              \begin{enumerate}
-                  \item Eigenwerte $\lambda_1$ und $\lambda_2$
-                        \begin{enumerate}
-                            \item[a)] Falls gleich und $A=\text{diag}$: $\vec x(t)=\begin{pmatrix} e^{\lambda(t-t_0)x_{01}} \\ e^{\lambda(t-t_0)x_{02}} \end{pmatrix}$
-                            \item[b)] Falls gleich und $A \ne \text{diag}$ (TODO VL 28.4.)
-                        \end{enumerate}
-                  \item Falls $\lambda_1 \ne \lambda_2$ reel: Eigenvektoren $q_1$ und $q_2$ finden
-                  \item $x(t)=\vec q_1e^{\lambda_1(t-t_0)}\xi_{01}+\vec q_2e^{\lambda_2(t-t_0)}\xi_{02}$ mit $\vec \xi_0=\ma Q^{-1}\vec x_0$ und $Q=\begin{pmatrix}\vec q_1 && \vec q_2\end{pmatrix}$
-                  \item Falls $\lambda_1 \ne \lambda_2$ komplex: (TODO VL 28.4. + next)
-              \end{enumerate}
+        \item[a)] zwei Kapazitäten: Leitwertsmatrix $\ma G$
+        \item[b)] zwei Induktivitäten: Widerstandsmatrix $\ma R$
+        \item[c)] Kapazität (Tor 1) und Induktivität (Tor 2): Inverse Hybridmatrix $\ma{H'}$
+        \item[d)] Induktivität (Tor 1) und Kapazität (Tor 2): Hybridmatrix $\ma{H}$
     \end{itemize}
+
+    \textbf{III. Differentialgleichungssystem aufstellen} \\
+    \textbf{IV. Ausgangsgleichung bestimmen}
 
     \sectionbox{
         \subsubsection{Matrizengrößen}
@@ -1324,7 +1326,7 @@
     }
 
 
-        \subsection{Lösung der Zustandsgleichungen}
+    \subsection{Lösung der Zustandsgleichungen}
     \subsubsection{Homogener Fall}
     Transformation autonom (konst. Erregung) $\Rightarrow$ homogener Fall mit: $\ \mathbf{x}' = \mathbf{x} - \mathbf{x}_\infty$.\\ \\
     $\lambda_1 \neq \lambda_2$: $\mathbf{x}(t) = \ c_1\e^{\lambda_1 t}\mathbf{q}_1 + c_2\e^{\lambda_2 t}\mathbf{q}_2$\\
@@ -1383,40 +1385,40 @@
     $\mathbf{x}{\text{trans}}(t) = \exp{(\mathbf{A}t)} \cdot \mathbf{x}{\text{trans}}(t)$ \\
 
 
-    \subsection{Phasenportraits}
-    Trajektorien, welche abhängig vom Anfangspunkt sind und sich \textbf{nie} schneiden.
+        \subsection{Phasenportraits}
+        Trajektorien, welche abhängig vom Anfangspunkt sind und sich \textbf{nie} schneiden.
 
-    \subsubsection{Zeichnen des Phasenportraits}
-    \textbf{I. Bestimmung der Eigenwerte $\lambda_i$ und Eigenvektoren $q_i$ von $\ma A$}\\
+        \subsubsection{Zeichnen des Phasenportraits}
+        \textbf{I. Bestimmung der Eigenwerte $\lambda_i$ und Eigenvektoren $q_i$ von $\ma A$}\\
     $\lambda_{1,2} = \frac{tr(\ma A)}{2} \pm \sqrt{\frac{tr(\ma A)^2}{4}-det(\ma A)}$\\
     $a_{12} \neq 0 \Rightarrow \mathbf{q}i = \begin{bmatrix}-a{12}\\a_{11}-\lambda_i\end{bmatrix}$\quad $a_{21} \neq 0 \Rightarrow \mathbf{q}i = \begin{bmatrix}a{22}-\lambda_i\\-a_{21}\end{bmatrix}$\quad$a_{12} = a_{21} = 0 \Rightarrow \mathbf{q}_1 = \begin{bmatrix}1\\0\end{bmatrix}, \mathbf{q}_2 = \begin{bmatrix}0\\1\end{bmatrix}$\\
-    Falls Eigenvektoren komplex: $\mathbf{q}_r = \Re{q_1}$\qquad$\mathbf{q}_i = \Im{q_1}$\\
-    \textbf{II. Bestimmung des Fixpunktes}\\
+        Falls Eigenvektoren komplex: $\mathbf{q}_r = \Re{q_1}$\qquad$\mathbf{q}_i = \Im{q_1}$\\
+        \textbf{II. Bestimmung des Fixpunktes}\\
     $\mathbf{A}\mathbf{x}\infty + \mathbf{B}\mathbf{v} = 0 \Rightarrow \mathbf{x}\infty = -\mathbf{A}^{-1} \mathbf{B}\mathbf{v}$\\
-    \textbf{III. Art des Phasenportraits}\\
-    \textbf{Strudelpunkt}\\
+        \textbf{III. Art des Phasenportraits}\\
+        \textbf{Strudelpunkt}\\
     $\lambda_{1} = \lambda_2^* = \alpha + \beta j$, $\alpha \neq 0$: Je nach $\sgn(\alpha)$ stabiler (-) oder instabiler (+) Strudel in Drehrichtung von $\mathbf{q}r$ ($\xi{\text{reel}1}$) nach $-\mathbf{q}i$ ($\xi{\text{reel}2}$)\\
-    \includegraphics[width=.7\linewidth]{phase-strudel}\\
-    \textbf{Wirbelpunkt} (instabil)\\
+        \includegraphics[width=.7\linewidth]{phase-strudel}\\
+        \textbf{Wirbelpunkt} (instabil)\\
     $\lambda_{1} = \lambda_2^* = \beta j$: Wirbel in Drehrichtung von $\mathbf{q}r$ ($\xi{\text{reel}1}$) nach $-\mathbf{q}i$ ($\xi{\text{reel}2}$)\\
-    \includegraphics[width=.7\linewidth]{phase-wirbel}\\
-    \textbf{Knotenpunkt}\\
+        \includegraphics[width=.7\linewidth]{phase-wirbel}\\
+        \textbf{Knotenpunkt}\\
     $\lambda_{1,2} \in \mathbb R < 0, |\lambda_1| < |\lambda_2|$: Trajektorien von Richtung (Eigenvektor) des schnelleren Eigenwerts ($\mathbf{q}_2, \xi_2$) schmiegen sich an an Richtung des langsameren Eigenwerts ($\mathbf{q}_1, \xi_1$). Stabil für $\lambda_1,\lambda_2 < 0$, instabil sonst.\\
-    \includegraphics[width=.7\linewidth]{phase-knoten}\\ \\
-    \textbf{Sattelpunkt} (instabil)\\
+        \includegraphics[width=.7\linewidth]{phase-knoten}\\ \\
+        \textbf{Sattelpunkt} (instabil)\\
     $\lambda_1 < 0 < \lambda_2 $: Zwei Geraden in Eigenrichtungen, von stabiler Richtung zu GGP, zu instabiler Richtung. Restliche Trajektorien Hyperbeln mit Geraden als Asymptoten.\\
-    \includegraphics[width=.7\linewidth]{phase-sattel}\\
+        \includegraphics[width=.7\linewidth]{phase-sattel}\\
 
-    \textbf{Phasenportrait bei konstanter Erregung}\\
-    Zentrum des Phasenportraits (z.B. Sattelpunkt) wird im $x_\infty$ verschoben \\
+        \textbf{Phasenportrait bei konstanter Erregung}\\
+        Zentrum des Phasenportraits (z.B. Sattelpunkt) wird im $x_\infty$ verschoben \\
 
-    \textbf{IV. Einzeichnen von Fixpunkt und Eigenvektoren}\\
-    Die Eigenvektoren werden ausgehend vom Fixpunkt eingezeichnet. Bei konjugierten Eigenvektoren zeichnet man den Realteil und den negierten Imaginärteil.\\
-    \subsubsection{Isokline}
-    Kurve, auf der die Steigung der Trajektorie konstant ist.\\
+        \textbf{IV. Einzeichnen von Fixpunkt und Eigenvektoren}\\
+        Die Eigenvektoren werden ausgehend vom Fixpunkt eingezeichnet. Bei konjugierten Eigenvektoren zeichnet man den Realteil und den negierten Imaginärteil.\\
+        \subsubsection{Isokline}
+        Kurve, auf der die Steigung der Trajektorie konstant ist.\\
     $m = \frac{\dot{x}_2}{\dot{x}_1}$, falls $m = 0: \dot{x}_2 = 0$ bzw. $m = \infty: \dot{x}_1 = 0$
-    \subsubsection{Separatrix}
-    Kurve, die Gebiete mit verschiedenem Langzeitverhalten trennt.
+        \subsubsection{Separatrix}
+        Kurve, die Gebiete mit verschiedenem Langzeitverhalten trennt.
         \section{Nichtlineare dynamische Systeme}
         \begin{enumerate}
             \item Alle Fixpunkte bestimmen $\mathbf{f}(x_\infty) \stackrel{!}{=} \mathbf{0}$
