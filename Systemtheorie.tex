@@ -1355,7 +1355,7 @@
     \end{itemize}
 
     \subsubsection{Transformation auf Normalform}
-    Gegeben: $\dot{x}' = \mathbf{A} x'$\\
+    Gegeben: $\dot{x}' = \mathbf{A} x'$ \\
     Normalgleichung: $\dot{\xi} = \Lambda \xi$
     \begin{enumerate}
         \item Eigenwerte $\lambda_1, \lambda_2$ und Eigenvektoren $\mathbf{q}_1, \mathbf{q}_2$ berechnen
@@ -1371,10 +1371,10 @@
 
     \subsubsection{Transformation auf Jordan-Normalform}
     Gegeben: $\lambda = \lambda_1 = \lambda_2, \mathbf{A}$ ist keine Diagonalmatrix\\
-    $J = \begin{bmatrix} \lambda & 1 \\ 0 & \lambda \end{bmatrix}, \mathbf{Q}' = \begin{bmatrix} \mathbf{q}_1' & \mathbf{q}_2' \end{bmatrix}, \xi'(t) = \mathbf{Q}'^{-1}\mathbf{x}(t)$\\
+    $J = \begin{bmatrix} \lambda & 1 \\ 0 & \lambda \end{bmatrix}, \mathbf{Q}' = \begin{bmatrix} \mathbf{q}_1' & \mathbf{q}_2' \end{bmatrix}, \xi'(t) = \mathbf{Q}'^{-1}\mathbf{x'}(t)$\\
     Zustandsgleichung in Jordan-Normalform: $\dot{\xi}'(t) = \mathbf{J} \xi'(t)$\\
     Lösung der Zustandsgleichung:\\ $\xi'(t) = \begin{bmatrix} \exp(\lambda(t-t_0))\xi_1'(t_0)+(t-t_0)\exp(\lambda(t-t_0))\xi_2'(t_0) \\ \exp(\lambda(t-t_0))\xi_2'(t_0) \end{bmatrix}$\\
-    Rücktransformation: $\mathbf{x}(t) = \mathbf{Q}'\xi'(t) = \mathbf{q}_1'\xi_1'(t) + \mathbf{q}_2'\xi_2'(t)$\\
+    Rücktransformation: $\mathbf{x'}(t) = \mathbf{Q}'\xi'(t) = \mathbf{q}_1'\xi_1'(t) + \mathbf{q}_2'\xi_2'(t)$\\
     \subsubsection{Transformation auf reelwertige Normalform}
     Gegeben: $\lambda_{1/2} = \alpha \pm \beta j, \mathbf{q}_r, \mathbf{q}_i$\\
     $\Lambda_\text{reell} =  \begin{bmatrix} \alpha & - \beta \\ \beta & \alpha \end{bmatrix}$\\
@@ -1409,8 +1409,8 @@
     \textbf{Phasenportrait bei konstanter Erregung}\\
     Zentrum des Phasenportraits (z.B. Sattelpunkt) wird im $x_\infty$ verschoben \\
 
-    \textbf{IV. Einzeichnen von Fixpunkt und Eigenvektoren}\\
-    Die Eigenvektoren werden ausgehend vom Fixpunkt eingezeichnet. Bei konjugierten Eigenvektoren zeichnet man den Realteil und den negierten Imaginärteil.\\
+    \textbf{IV. Einzeichnen von GGP und Eigenvektoren}\\
+    Die Eigenvektoren werden ausgehend vom GGP eingezeichnet. Bei konjugierten Eigenvektoren zeichnet man den Realteil und den negierten Imaginärteil.\\
 
     \subsection{Zeitverlauf der Zustandsvariablen}
     % (TODO: Schwingungen Zeichnen (oft cos s. VL 12.5.))
@@ -1495,14 +1495,27 @@
             \item Alle Gleichgewichtspunkte bestimmen $\mathbf{f}(x_\infty) \stackrel{!}{=} \mathbf{0}$
             \item Jacobimatrix bestimmen
             \item Gleichgewichtspunkte in Jacobimatrix einsetzen und Eigenwerte und Eigenvektoren bestimmen
-            \item Überprüfen des \textbf{Satzes von Hartmann/Grobmann}: \\Für alle Eigenwerte gilt $\Re{\lambda_i} \neq 0$
+            \item Überprüfen des \textbf{Satzes von Hartmann/Grobmann}: \\Für alle Eigenwerte muss gelten: $\Re{\lambda_i} \neq 0$, ansonsten kann man die Linearisierung mit Jacobimatrix nicht anwenden (und muss ggf. mit konservativen Systemen argumentieren)
             \item Phasenportrait zeichnen (lokale Phasenportraits (Phasenportrait zu einem bestimmten GGP) stetig verbinden)
         \end{enumerate}
-        \subsection{Energiefunktion $E$}
+        \subsection{Energiefunktion $E(\mathbf{x})$}
         Eigenschaften: stetig, lokal nicht konstant, auf jeder Trajektorie konstant\\
         Schaltung ist \textbf{konservativ}, falls:\\
-    $\dot{E} = 0 \Leftrightarrow \frac{\partial E(\mathbf{x})}{\partial x_1} \dot{x}_1 + \frac{\partial E(\mathbf{x})}{\partial x_2} \dot{x}_2 + \hdots + \frac{\partial E(\mathbf{x})}{\partial x_n} \dot{x}_n = 0$\\
-        Erweiterung des Satzes von Hartmann/Grobmann: Jacobimatrix hat nur imaginäre Eigenwerte und Schaltung ist konservativ $\Leftrightarrow$ GGP ist Wirbelpunkt
+    $\dot{E} = 0 \Leftrightarrow \frac{\partial E(\mathbf{x})}{\partial x_1} \dot{x}(t)_1 + \frac{\partial E(\mathbf{x})}{\partial x_2} \dot{x}(t)_2 + \hdots + \frac{\partial E(\mathbf{x})}{\partial x_n} \dot{x}(t)_n = 0$
+        \subsubsection{Eigenschaften konservativer Schaltungen}
+        \sectionbox{
+            \begin{itemize}
+                \item GGP ist entweder Sattelpunkt, Wirbelpunkt, oder GGP mit verschwindenden Eigenwert ($\lambda_i=0$) $\rightarrow$ keine rein stabilen GGPs
+                \item Erweiterung des Satzes von Hartmann/Grobmann: Jacobimatrix hat nur imaginäre Eigenwerte und Schaltung ist konservativ $\Leftrightarrow$ GGP ist Wirbelpunkt
+            \end{itemize}
+        }
+        \subsubsection{Zeichnen des Phasenportraits bei konservativen Schaltungen}
+        \begin{enumerate}
+            \item Energiefunktion gegeben durch z.B. $E(\xi_1,\xi_2)=...$
+            \item Befindet man sich auf der Trajektorie $\Gamma$, so gilt $E(\Gamma)=E(\xi_1,\xi_2)=...$
+            \item Löst man nach z.B. $\xi_2$ auf, so erhält man die Funktion $\xi_2(\xi_1)$, welche man zeichnen kann
+        \end{enumerate}
+
         \subsection{Oszillatoren}
         Schaltung mit periodischem Verlauf der Zustandsgrößen\\
         Voraussetzung: nichtlinear, nur ein Fixpunkt (instabil)\\
