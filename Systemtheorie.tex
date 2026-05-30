@@ -276,10 +276,10 @@
 
     \subsection{Beschreibungsformen von Zweitoren}
     \begin{tabular}{@{}p{1.3cm}|ll@{}}
-        Beschreibung                & nicht linear                                                                                                                          & linear                                 \\ \mrule
-        \textbf{Implizit}           & $f_{\mathcal F}( \ul u, \underline i) = \ul 0$                                                                                        & $\mat{ \ma M & \ma N} \cdot \mat{\ul u \\ \ul i} = 0$                                                                   \\ \mrule
-        \textbf{Parametrisch}       & $\begin{array}{@{}l} \ul u = u_{\mathcal F}(\ul \lambda) \\ \ul i=i_{\mathcal F}(\ul \lambda) \end{array}$ & $\mat{ \ul u                           \\ \ul i } = \mat{\utilde{ \bf U} \\ \utilde{ \bf I}} \cdot \ul c$  \vspace{2em} \\
-        \textbf{Explizit}           & nicht linear                                                                                                                          & linear                                 \\\mrule
+        Beschreibung                & nicht linear                                                                                                                                                                                                                     & linear                                                                                                                  \\ \mrule
+        \textbf{Implizit}           & $f_{\mathcal F}( \ul u, \underline i) = \ul 0$                                                                                                                                                                                   & $\mat{ \ma M & \ma N} \cdot \mat{\ul u \\ \ul i} = 0$                                                                   \\ \mrule
+        \textbf{Parametrisch}       & $\begin{array}{@{}l} \ul u = u_{\mathcal F}(\ul \lambda) \\ \ul i=i_{\mathcal F}(\ul \lambda) \end{array}$                                                                                                                       & $\mat{ \ul u                           \\ \ul i } = \mat{\utilde{ \bf U} \\ \utilde{ \bf I}} \cdot \ul c$  \vspace{2em} \\
+        \textbf{Explizit}           & nicht linear                                                                                                                                                                                                                     & linear                                                                                                                  \\\mrule
         Widerstand-beschreibung     & $\mat{ u_1                                                                                                                                                                     \\ u_2} = \mat{ r_1(i_1,i_2)\\ r_2(i_1,i_2) }$    & $= \mat{ U_0 \\ U_0} + \utilde{ \bf R} \mat{ i_1 \\ i_2} $                                                              \\ \mrule
         Leitwert-beschreibung       & $\mat{ i_1                                                                                                                                                                     \\ i_2} = \mat{g_1(u_1,u_2) \\ g_2(u_1,u_2)}$     & $= \mat{ I_0 \\ I_0} + \utilde{ \bf G} \mat{ u_1 \\ u_2} $                                                              \\ \mrule
         Hybrid-beschreibung         & $\mat{ u_1                                                                                                                                                                     \\ i_2} = \mat{h_1(i_1,u_2) \\ h_2(i_1,u_2)} $    & $= \ma{H} \cdot \mat{ i_1\\ u_2 }$                                                                                      \\ \mrule
@@ -331,7 +331,7 @@
     % ============================================================================================================
     Es gibt sechs mögliche Verschaltungen.\\
     \begin{tabular}{@{}ll}
-        Verschaltung & Bild                                                        \\ \hline
+        Verschaltung                                                                                                                                                    & Bild                                                       \\ \hline
         \parbox{3cm}{Parallel: $g_{ges}=g_{\mathcal F1}+g_{\mathcal F2}$           \\ linear: $\ma G_{\ir ges} = \ma G_1 + \ma G_2$ \\ Umrechnung: }                    & \parbox{2.5cm}{\includegraphics{./img/ztv_leitwert.pdf}}   \\[2em]
         \parbox{3cm}{Serie: $r_{ges}=r_{\mathcal F1}+r_{\mathcal F2}$              \\ linear: $\ma R_{\ir ges} = \ma R_1 + \ma R_2$}                                    & \parbox{2.5cm}{\includegraphics{./img/ztv_widerstand.pdf}} \\[2em]
         \parbox{3cm}{Hybrid: $h_{ges}=h_{\mathcal F1}+h_{\mathcal F2}$             \\ linear: $\ma H_{\ir ges} = \ma H_1 + \ma H_2$ \\ auch genannt: Serien-Parallel}   & \parbox{2.5cm}{\includegraphics{./img/ztv_hybrid.pdf}}     \\[2em]
@@ -604,7 +604,7 @@
 
         \resizebox{\columnwidth}{!} {
             \begin{tabular}{l|l|l}
-                    & Nullraum                         & Bildraum               \\ \hline
+                    & Nullraum                                                                         & Bildraum                                                            \\ \hline
                 KCL & $\ma A \vec i = \mat{\ma 1_{n-1} & \ma A_v} \mat{\vec i_b \\ \vec i_v}=\vec 0$   & $\vec i = \ma B^T \vec i_v=\mat{\ma B_t^T \\ \ma 1_s}\vec i_v$      \\ \hline
                 KVL & $\ma B \vec u = \mat{\ma B_b     & \ma 1_s}\mat{\vec u_b  \\ \vec u_v} = \vec 0$ & $\vec u = \ma A^T \vec u_b = \mat{\ma 1_{n-1} \\ \ma A_v} \vec u_b$
             \end{tabular}
@@ -690,21 +690,21 @@
     \tiny
     \begin{tabular}{ll}
         $\ma {Y_k} = \kbordermatrix{ & u_{k\alpha} &                                   & u_{k\beta}                                                                                     &                                  & u_{k\gamma}                                                                                  \\
-        \alpha                       &             &                                   &                                                                                                & \ldots                           & G_d                                                                                          \\
-                                     &             &                                   &                                                                                                &                                  & \vdots                                                                                       \\
-        \beta                        &             &                                   &                                                                                                & \ldots                           & -G_d                                                                                         \\
-                                     & \vdots      &                                   & \vdots                                                                                         &                                  & \vdots                                                                                       \\
-        \gamma                       & -G_d        & \ldots                            & G_d                                                                                            & \ldots\\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/gyrator_a_b_y_gnd.png} } \\
+                \alpha                       &             &                                   &                                                                                                & \ldots                           & G_d                                                                                          \\
+                &             &                                   &                                                                                                &                                  & \vdots                                                                                       \\
+                \beta                        &             &                                   &                                                                                                & \ldots                           & -G_d                                                                                         \\
+                & \vdots      &                                   & \vdots                                                                                         &                                  & \vdots                                                                                       \\
+                \gamma                       & -G_d        & \ldots                            & G_d                                                                                            & \ldots\\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/gyrator_a_b_y_gnd.png} } \\
         $\ma {Y_k} = \kbordermatrix{ & u_{k\alpha} &                                   & u_{k\gamma}                                                                                    &                                  & u_{k\delta}                                                                                  \\
-        \alpha                       &             & \ldots                            & G_d                                                                                            & \ldots                           & -G_d                                                                                         \\
-                                     & \vdots      &                                   & \vdots                                                                                         &                                  & \vdots                                                                                       \\
-        \gamma                       & -G_d        & \ldots                                                                                                                                                                                                                                                               \\
-                                     & \vdots                                                                                                                                                                                                                                                                             \\
-        \delta                       & G_d         & \ldots \\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/gyrator_a_y_d_gnd.png} }                                                                                                                                     \\
+                \alpha                       &             & \ldots                            & G_d                                                                                            & \ldots                           & -G_d                                                                                         \\
+                & \vdots      &                                   & \vdots                                                                                         &                                  & \vdots                                                                                       \\
+                \gamma                       & -G_d        & \ldots                                                                                                                                                                                                                                                               \\
+                & \vdots                                                                                                                                                                                                                                                                             \\
+                \delta                       & G_d         & \ldots \\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/gyrator_a_y_d_gnd.png} } \\
         $\ma {Y_k} = \kbordermatrix{ & u_{k\alpha} &                                   & u_{k\gamma}                                                                                                                                                                                                                      \\
-        \alpha                       &             & \ldots                            & G_d                                                                                                                                                                                                                              \\
-                                     & \vdots      &                                   & \vdots                                                                                                                                                                                                                           \\
-        \gamma                       & -G_d        & \ldots\\}$  & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/gyrator_a_y_gnd_gnd.png} }                                                                                                                                   \\
+                \alpha                       &             & \ldots                            & G_d                                                                                                                                                                                                                              \\
+                & \vdots      &                                   & \vdots                                                                                                                                                                                                                           \\
+                \gamma                       & -G_d        & \ldots\\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/gyrator_a_y_gnd_gnd.png} } \\
     \end{tabular}
     $\ \ \ \ \ma {Y_k} = \kbordermatrix{ & u_{k\alpha} & & u_{k\beta} & & u_{k\gamma} & & u_{k\delta}\\
             \alpha & & & & \ldots & G_d & \ldots & -G_d\\
@@ -723,48 +723,48 @@
     \begin{tabular}{ll}
         $\ \ \ \ \ma {Y_k} = $
         $\kbordermatrix{ &        & u_{k\alpha} &                            & u_{k\beta}                                                                                   &                                                                                                                         \\
-                         &        & \vdots      &                            & \vdots                                                                                       &                                                                                                                         \\
-        \alpha           & \ldots & G           & \ldots                     & -G                                                                                           & \ldots                                                                                                                  \\
-                         &        & \vdots      &                            & \vdots                                                                                       &                                                                                                                         \\
-        \beta            & \ldots & -G          & \ldots                     & G                                                                                            & \ldots                                                                                                                  \\
-                         &        & \vdots      &                            & \vdots                                                                                       & \\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/conductance_a_b.png} } \\
+                &        & \vdots      &                            & \vdots                                                                                       &                                                                                                                         \\
+                \alpha           & \ldots & G           & \ldots                     & -G                                                                                           & \ldots                                                                                                                  \\
+                &        & \vdots      &                            & \vdots                                                                                       &                                                                                                                         \\
+                \beta            & \ldots & -G          & \ldots                     & G                                                                                            & \ldots                                                                                                                  \\
+                &        & \vdots      &                            & \vdots                                                                                       & \\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/conductance_a_b.png} } \\
 
         $\ \ \ \ \ma {Y_k}$ =
         $\kbordermatrix{ &        & u_{k\alpha} &                                                                                                                                                                                                                                                     \\
-                         &        & \vdots      &                                                                                                                                                                                                                                                     \\
-        \alpha           & \ldots & G           & \ldots                                                                                                                                                                                                                                              \\
-                         &        & \vdots      & \\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/conductance_a_gnd.png} }                                                                                                                           \\
+                &        & \vdots      &                                                                                                                                                                                                                                                     \\
+                \alpha           & \ldots & G           & \ldots                                                                                                                                                                                                                                              \\
+                &        & \vdots      & \\}$ & \parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/conductance_a_gnd.png} } \\
     \end{tabular}
 
     \begin{tabular}{ll}
         $\ \ \ \ \ma {Y_k}$ =
         $\kbordermatrix{ & u_{k\gamma} &                            & u_{k\delta}                                                                                                                                                                                                                                  \\
-                         & \vdots      &                            & \vdots                                                                                                 &                                                                                                                                     \\
-        \alpha           & g_m         & \ldots                     & -g_m                                                                                                                                                                                                                                         \\
-                         & \vdots      &                            & \vdots                                                                                                                                                                                                                                       \\
-        \beta            & -g_m        & \ldots                     & g_m                                                                                                                                                                                                                                          \\
-                         & \vdots      &                            & \vdots                                                                                                 & \\}$ & \hspace{-2em}\parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/vccs_a_b_y_d.png} }   \\
+                & \vdots      &                            & \vdots                                                                                                 &                                                                                                                                     \\
+                \alpha           & g_m         & \ldots                     & -g_m                                                                                                                                                                                                                                         \\
+                & \vdots      &                            & \vdots                                                                                                                                                                                                                                       \\
+                \beta            & -g_m        & \ldots                     & g_m                                                                                                                                                                                                                                          \\
+                & \vdots      &                            & \vdots                                                                                                 & \\}$ & \hspace{-2em}\parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/vccs_a_b_y_d.png} } \\
 
         $\ \ \ \ \ma {Y_k}$ =
         $\kbordermatrix{ & u_{k\gamma} &                                                                                                                                                                                                                                                                           \\
-                         & \vdots      &                                                                                                                                                                                                                                                                           \\
-        \alpha           & g_m         & \ldots                                                                                                                                                                                                                                                                    \\
-                         & \vdots      &                                                                                                                                                                                                                                                                           \\
-                         & \vdots      &                                                                                                                                                                                                                                                                           \\
-        \beta            & -g_m        & \ldots                                                                                                                                                                                                                                                                    \\
-                         & \vdots      & \\}$ & \hspace{-2em}\parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/vccs_a_b_y_gnd.png} }                                                                                                                                       \\
+                & \vdots      &                                                                                                                                                                                                                                                                           \\
+                \alpha           & g_m         & \ldots                                                                                                                                                                                                                                                                    \\
+                & \vdots      &                                                                                                                                                                                                                                                                           \\
+                & \vdots      &                                                                                                                                                                                                                                                                           \\
+                \beta            & -g_m        & \ldots                                                                                                                                                                                                                                                                    \\
+                & \vdots      & \\}$ & \hspace{-2em}\parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/vccs_a_b_y_gnd.png} } \\
 
         $\ \ \ \ \ma {Y_k}$ =
         $\kbordermatrix{ & u_{k\gamma} &                            & u_{k\delta}                                                                                            &                                                                                                                                     \\
-                         & \vdots      &                            & \vdots                                                                                                 &                                                                                                                                     \\
-        \alpha           & g_m         & \ldots                     & -g_m                                                                                                   & \ldots                                                                                                                              \\
-                         & \vdots      &                            & \vdots                                                                                                 & \\}$ & \hspace{-2em}\parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/vccs_a_y_d_gnd.png} } \\
+                & \vdots      &                            & \vdots                                                                                                 &                                                                                                                                     \\
+                \alpha           & g_m         & \ldots                     & -g_m                                                                                                   & \ldots                                                                                                                              \\
+                & \vdots      &                            & \vdots                                                                                                 & \\}$ & \hspace{-2em}\parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/vccs_a_y_d_gnd.png} } \\
 
         $\ \ \ \ \ma {Y_k}$ =
         $\kbordermatrix{ & u_{k\gamma} &                                                                                                                                                                                                                                                                           \\
-                         & \vdots      &                                                                                                                                                                                                                                                                           \\
-        \alpha           & g_m         & \ldots                                                                                                                                                                                                                                                                    \\
-                         & \vdots      & \\}$ & \hspace{-2em}\parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/vccs_a_y_gnd.png} }                                                                                                                                         \\
+                & \vdots      &                                                                                                                                                                                                                                                                           \\
+                \alpha           & g_m         & \ldots                                                                                                                                                                                                                                                                    \\
+                & \vdots      & \\}$ & \hspace{-2em}\parbox{3cm}{\includegraphics[scale=0.15]{./img/nodevoltageanalysis/vccs_a_y_gnd.png} } \\
     \end{tabular}\\
     Jede Quellwandlung löscht einen Knoten (und somit ein Knotenpotenzial) $\rightarrow Y_k$ schrinkt um eine Zeile und um eine Spalte.\\\\
     \hrule
@@ -825,8 +825,8 @@
         Netzwerkelementen lässt sich durch mindestens eine
         der beiden folgenden Ersatzeintore beschreiben.\\
         \begin{tabular}{cc}
-            \textbf{Helmholz / Thévenin ESB}                          &
-            \textbf{Mayer / Norton ESB}                                                        \\
+            \textbf{Helmholz / Thévenin ESB}                              &
+            \textbf{Mayer / Norton ESB}                                                            \\
             \hspace{-1.5em}\begin{circuitikz}
                                \draw (0,0) to[R, l=R, i_<=$i$, -o] (2,0);
                                \draw (2,-2) to[short, o-] (0, -2) to[V, v<=$U_0$] (0,0);
@@ -949,14 +949,14 @@
             \begin{tabular}{ll}
                 \textbf{Zeitfunktion} & $a(t) = A_m\cos(\omega t+\phi)=\Re{Ae^{j\omega t}}$ \\
                 \textbf{Zeiger}       & \parbox{3cm}{\begin{align*}
-                                                             A & = \alpha + j\beta = A_m  e^{j\phi} \\
-                                                               & = A_m  (\cos \phi+j\sin \phi)
-                                                         \end{align*}} \\
+                                                A & = \alpha + j\beta = A_m  e^{j\phi} \\
+                                                  & = A_m  (\cos \phi+j\sin \phi)
+                                            \end{align*}}      \\
                 \textbf{Maximum}      & $A_m = |A| = \sqrt{\alpha^2+\beta^2} = \sqrt{AA^*}$ \\
                 \textbf{Phase}        & $\phi = \begin{cases}
-                                                        \arctan\frac{\beta}{\alpha}     & \alpha>0 \\
-                                                        \arctan\frac{\beta}{\alpha}+\pi & \alpha<0 \\
-                                                    \end{cases}$  \\\\
+                                                \arctan\frac{\beta}{\alpha}     & \alpha>0 \\
+                                                \arctan\frac{\beta}{\alpha}+\pi & \alpha<0 \\
+                                            \end{cases}$  \\\\
                 \textbf{Kapazität}    & $I_C=j\omega CU_C$                                  \\
                 \textbf{Induktivität} & $U_L=j\omega LI_L$
             \end{tabular}
@@ -1080,37 +1080,37 @@
             \draw[thick] (0,0) circle[radius=1];
             % draw dots, labels
             \foreach \i/\j/\k in {
-            30/\frac{\pi}{6}/{\left(\frac{\sqrt{3}}{2},\frac{1}{2}\right)},
-            45/\frac{\pi}{4}/{\left(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)},
-            60/\frac{\pi}{3}/{\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)},
-            90/\frac{\pi}{2}/{\rotatebox{-90}{(0,1)}},
-            120/\frac{2\pi}{3}/{\left(\frac{-1}{2},\frac{\sqrt{3}}{2}\right)},
-            135/\frac{3\pi}{4}/{\left(\frac{-\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)},
-            150/\frac{5\pi}{6}/{\left(\frac{-\sqrt{3}}{2},\frac{1}{2}\right)},
-            180/\pi/{(-1,0)},
-            210/\frac{7\pi}{6}/{\left(\frac{\sqrt{3}}{2},\frac{-1}{2}\right)},
-            225/\frac{5\pi}{4}/{\left(\frac{-\sqrt{2}}{2},\frac{-\sqrt{2}}{2}\right)},
-            240/\frac{4\pi}{3}/{\left(\frac{-1}{2},\frac{-\sqrt{3}}{2}\right)},
-            270/\frac{3\pi}{2}/{\rotatebox{90}{(0,-1)}},
-            300/\frac{5\pi}{3}/{\left(\frac{1}{2},\frac{-\sqrt{3}}{2}\right)},
-            315/\frac{7\pi}{4}/{\left(\frac{\sqrt{2}}{2},\frac{-\sqrt{2}}{2}\right)},
-            330/\frac{11\pi}{6}/{\left(\frac{\sqrt{3}}{2},-\frac{1}{2}\right)},
-            360/2\pi/{(1,0)}
-            }
-            {
-            \path[draw=gray]    (\i:0) -- (\i:0.4)
-            -- node[lbl] {\tiny $\i^{\circ}$} (\i:0.77)
-            -- node[lbl] {$\j$} (\i:1) node[dot] {};
-            \ifnum\i<270
-                \ifnum\i>90
-                    \path   (\i:1) --  node[lbl, anchor=east] {$\k$} (\i:1.4);
-                \else
-                    \path   (\i:1) --  node[lbl, anchor=west] {$\k$} (\i:1.4);
-                \fi
-            \else
-                \path   (\i:1) --  node[lbl, anchor=west] {$\k$} (\i:1.3);
-            \fi
-            }
+                    30/\frac{\pi}{6}/{\left(\frac{\sqrt{3}}{2},\frac{1}{2}\right)},
+                    45/\frac{\pi}{4}/{\left(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)},
+                    60/\frac{\pi}{3}/{\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)},
+                    90/\frac{\pi}{2}/{\rotatebox{-90}{(0,1)}},
+                    120/\frac{2\pi}{3}/{\left(\frac{-1}{2},\frac{\sqrt{3}}{2}\right)},
+                    135/\frac{3\pi}{4}/{\left(\frac{-\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)},
+                    150/\frac{5\pi}{6}/{\left(\frac{-\sqrt{3}}{2},\frac{1}{2}\right)},
+                    180/\pi/{(-1,0)},
+                    210/\frac{7\pi}{6}/{\left(\frac{\sqrt{3}}{2},\frac{-1}{2}\right)},
+                    225/\frac{5\pi}{4}/{\left(\frac{-\sqrt{2}}{2},\frac{-\sqrt{2}}{2}\right)},
+                    240/\frac{4\pi}{3}/{\left(\frac{-1}{2},\frac{-\sqrt{3}}{2}\right)},
+                    270/\frac{3\pi}{2}/{\rotatebox{90}{(0,-1)}},
+                    300/\frac{5\pi}{3}/{\left(\frac{1}{2},\frac{-\sqrt{3}}{2}\right)},
+                    315/\frac{7\pi}{4}/{\left(\frac{\sqrt{2}}{2},\frac{-\sqrt{2}}{2}\right)},
+                    330/\frac{11\pi}{6}/{\left(\frac{\sqrt{3}}{2},-\frac{1}{2}\right)},
+                    360/2\pi/{(1,0)}
+                }
+                {
+                    \path[draw=gray]    (\i:0) -- (\i:0.4)
+                    -- node[lbl] {\tiny $\i^{\circ}$} (\i:0.77)
+                    -- node[lbl] {$\j$} (\i:1) node[dot] {};
+                    \ifnum\i<270
+                        \ifnum\i>90
+                            \path   (\i:1) --  node[lbl, anchor=east] {$\k$} (\i:1.4);
+                        \else
+                            \path   (\i:1) --  node[lbl, anchor=west] {$\k$} (\i:1.4);
+                        \fi
+                    \else
+                        \path   (\i:1) --  node[lbl, anchor=west] {$\k$} (\i:1.3);
+                    \fi
+                }
         \end{tikzpicture}
     }
     \sectionbox{
@@ -1145,23 +1145,23 @@
     \section{Umrechnung von Zweitormatrizen}
     \textbf{Explizit $\ra$ Explizit}\\
     {
-    \setlength{\tabcolsep}{30pt}
-    \renewcommand{\arraystretch}{1.3}
-    \def\mrule{\noalign{\vspace{5pt}\hrule\vspace{7pt}}}                        % middle rule
-    \arraycolsep=3pt
-    \tabcolsep=5pt
-    \renewcommand{\frac}{\dfrac}
-    \rotatebox{270}{
-        \begin{tabular}{ccccccc}    % {c|c|c|c|c|c|c}    %
-            In $\rightarrow$ & $\ma R$                            & $\ma G$    & $\ma H$ & $\ma H'$ & $\ma A$ & $\ma A'$ \\ \mrule
-            $\ma R$          & $\mat{r_{11}                       & r_{12}                                               \\ r_{21} & r_{22} }$     & $\frac{1}{\det \ma G} \mat{ g_{22} & -g_{12} \\ -g_{21} & g_{11} }$ & $\frac{1}{h_{22}} \mat{ \det \ma H & h_{12} \\ -h_{21} & 1 }$       & $\frac{1}{h'_{11}} \mat{ 1 & -h'_{12} \\ h'_{21} & \det \ma H' }$        & $\frac{1}{a_{21}} \mat{ a_{11} & \det \ma A \\ 1 & a_{22} }$     & $\frac{1}{a'_{21}} \mat{ a'_{22} & 1 \\ \det \ma A' & a'_{11} }$       \\ \mrule
-            $\ma G$          & $\frac{1}{\det \ma R} \mat{ r_{22} & -r_{12}                                              \\ -r_{21} & r_{11} }$    & $\mat{g_{11} & g_{12} \\ g_{21} & g_{22} }$                         & $\frac{1}{h_{11}} \mat{ 1 & -h_{12} \\ h_{21} & \det \ma H }$       & $\frac{1}{h'_{22}} \mat{ \det \ma H' & h'_{12} \\ -h'_{21} & 1 }$        & $\frac{1}{a_{12}} \mat{ a_{22} & -\det \ma A \\ -1 & a_{11} }$   & $\frac{1}{a'_{12}} \mat{ a'_{11} & -1 \\ -\det \ma A' & a'_{22} }$     \\ \mrule
-            $\ma H$          & $\frac{1}{r_{22}} \mat{ \det \ma R & r_{12}                                               \\ -r_{21} & 1 }$         & $\frac{1}{g_{11}} \mat{ 1 & -g_{12} \\ g_{21} & \det \ma G }$       & $\mat{h_{11} & h_{12} \\ h_{21} & h_{22} }$                         & $\frac{1}{\det \ma H'} \mat{ h'_{22} & -h'_{12} \\ -h'_{21} & h'_{11} }$ & $\frac{1}{a_{22}} \mat{ a_{12} & \det \ma A \\ -1 & a_{21} }$    & $\frac{1}{a'_{11}} \mat{ a'_{12} & 1 \\ -\det \ma A' & a'_{21} }$      \\ \mrule
-            $\ma H'$         & $\frac{1}{r_{11}} \mat{ 1          & -r_{12}                                              \\ r_{21} & \det \ma R }$ & $\frac{1}{g_{22}} \mat{ \det \ma G & g_{12} \\ -g_{21} & 1 }$       & $\frac{1}{\det \ma H} \mat{ h_{22} & -h_{12} \\ -h_{21} & h_{11} }$ & $\mat{h'_{11} & h'_{12} \\ h'_{21} & h'_{22} }$                          & $\frac{1}{a_{11}} \mat{ a_{21} & -\det \ma A \\ 1 & a_{12} }$    & $\frac{1}{a'_{22}} \mat{ a'_{21} & -1 \\ \det \ma A' & a'_{12} }$      \\ \mrule
-            $\ma A$          & $\frac{1}{r_{21}} \mat{ r_{11}     & \det \ma R                                           \\ 1 & r_{22} }$          & $\frac{1}{g_{21}} \mat{ -g_{22} & -1 \\ -\det \ma G & -g_{11} }$    & $\frac{1}{h_{21}} \mat{- \det \ma H & -h_{11} \\ -h_{22} & -1 }$    & $\frac{1}{h'_{21}} \mat{1 & h'_{22} \\ h'_{11} & \det \ma H' }$          & $\mat{a_{11} & a_{12} \\ a_{21} & a_{22} }$                      & $\frac{1}{\det \ma A'} \mat{ a'_{22} & a'_{12} \\ a'_{21} & a'_{11} }$ \\ \mrule
-            $\ma A'$         & $\frac{1}{r_{12}} \mat{r_{22}      & \det \ma R                                           \\ 1 & r_{11}}$           & $\frac{1}{g_{12}} \mat{-g_{11} & -1 \\ -\det \ma G & -g_{22}}$      & $\frac{1}{h_{12}} \mat{1 & h_{11} \\ h_{22} & \det \ma H}$          & $\frac{1}{h'_{12}} \mat{-\det \ma H' & -h'_{22} \\ -h'_{11} & -1}$       & $\frac{1}{\det \ma A} \mat{a_{22} & a_{12} \\ a_{21} & a_{11} }$ & $\mat{a'_{11} & a'_{12} \\ a'_{21} & a'_{22} }$                        \\
-        \end{tabular}
-    }
+        \setlength{\tabcolsep}{30pt}
+        \renewcommand{\arraystretch}{1.3}
+        \def\mrule{\noalign{\vspace{5pt}\hrule\vspace{7pt}}}                        % middle rule
+        \arraycolsep=3pt
+        \tabcolsep=5pt
+        \renewcommand{\frac}{\dfrac}
+        \rotatebox{270}{
+            \begin{tabular}{ccccccc}    % {c|c|c|c|c|c|c}    %
+                In $\rightarrow$ & $\ma R$                                                                                                             & $\ma G$                                                             & $\ma H$                                                             & $\ma H'$                                                                 & $\ma A$                                                          & $\ma A'$                                                               \\ \mrule
+                $\ma R$          & $\mat{r_{11}                       & r_{12}                                               \\ r_{21} & r_{22} }$     & $\frac{1}{\det \ma G} \mat{ g_{22} & -g_{12} \\ -g_{21} & g_{11} }$ & $\frac{1}{h_{22}} \mat{ \det \ma H & h_{12} \\ -h_{21} & 1 }$       & $\frac{1}{h'_{11}} \mat{ 1 & -h'_{12} \\ h'_{21} & \det \ma H' }$        & $\frac{1}{a_{21}} \mat{ a_{11} & \det \ma A \\ 1 & a_{22} }$     & $\frac{1}{a'_{21}} \mat{ a'_{22} & 1 \\ \det \ma A' & a'_{11} }$       \\ \mrule
+                $\ma G$          & $\frac{1}{\det \ma R} \mat{ r_{22} & -r_{12}                                              \\ -r_{21} & r_{11} }$    & $\mat{g_{11} & g_{12} \\ g_{21} & g_{22} }$                         & $\frac{1}{h_{11}} \mat{ 1 & -h_{12} \\ h_{21} & \det \ma H }$       & $\frac{1}{h'_{22}} \mat{ \det \ma H' & h'_{12} \\ -h'_{21} & 1 }$        & $\frac{1}{a_{12}} \mat{ a_{22} & -\det \ma A \\ -1 & a_{11} }$   & $\frac{1}{a'_{12}} \mat{ a'_{11} & -1 \\ -\det \ma A' & a'_{22} }$     \\ \mrule
+                $\ma H$          & $\frac{1}{r_{22}} \mat{ \det \ma R & r_{12}                                               \\ -r_{21} & 1 }$         & $\frac{1}{g_{11}} \mat{ 1 & -g_{12} \\ g_{21} & \det \ma G }$       & $\mat{h_{11} & h_{12} \\ h_{21} & h_{22} }$                         & $\frac{1}{\det \ma H'} \mat{ h'_{22} & -h'_{12} \\ -h'_{21} & h'_{11} }$ & $\frac{1}{a_{22}} \mat{ a_{12} & \det \ma A \\ -1 & a_{21} }$    & $\frac{1}{a'_{11}} \mat{ a'_{12} & 1 \\ -\det \ma A' & a'_{21} }$      \\ \mrule
+                $\ma H'$         & $\frac{1}{r_{11}} \mat{ 1          & -r_{12}                                              \\ r_{21} & \det \ma R }$ & $\frac{1}{g_{22}} \mat{ \det \ma G & g_{12} \\ -g_{21} & 1 }$       & $\frac{1}{\det \ma H} \mat{ h_{22} & -h_{12} \\ -h_{21} & h_{11} }$ & $\mat{h'_{11} & h'_{12} \\ h'_{21} & h'_{22} }$                          & $\frac{1}{a_{11}} \mat{ a_{21} & -\det \ma A \\ 1 & a_{12} }$    & $\frac{1}{a'_{22}} \mat{ a'_{21} & -1 \\ \det \ma A' & a'_{12} }$      \\ \mrule
+                $\ma A$          & $\frac{1}{r_{21}} \mat{ r_{11}     & \det \ma R                                           \\ 1 & r_{22} }$          & $\frac{1}{g_{21}} \mat{ -g_{22} & -1 \\ -\det \ma G & -g_{11} }$    & $\frac{1}{h_{21}} \mat{- \det \ma H & -h_{11} \\ -h_{22} & -1 }$    & $\frac{1}{h'_{21}} \mat{1 & h'_{22} \\ h'_{11} & \det \ma H' }$          & $\mat{a_{11} & a_{12} \\ a_{21} & a_{22} }$                      & $\frac{1}{\det \ma A'} \mat{ a'_{22} & a'_{12} \\ a'_{21} & a'_{11} }$ \\ \mrule
+                $\ma A'$         & $\frac{1}{r_{12}} \mat{r_{22}      & \det \ma R                                           \\ 1 & r_{11}}$           & $\frac{1}{g_{12}} \mat{-g_{11} & -1 \\ -\det \ma G & -g_{22}}$      & $\frac{1}{h_{12}} \mat{1 & h_{11} \\ h_{22} & \det \ma H}$          & $\frac{1}{h'_{12}} \mat{-\det \ma H' & -h'_{22} \\ -h'_{11} & -1}$       & $\frac{1}{\det \ma A} \mat{a_{22} & a_{12} \\ a_{21} & a_{11} }$ & $\mat{a'_{11} & a'_{12} \\ a'_{21} & a'_{22} }$                        \\
+            \end{tabular}
+        }
     }
 
     \columnbreak
@@ -1172,50 +1172,50 @@
 
     \section{Systeme ersten Grades}
     \sectionbox{
-    \textbf{I. Resistives ESB bestimmen}\\
-    \tablebox{
-        \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}l|ll@{}} \trule
-            & Kapazität & Induktivität \\ \mrule
-            ESB-Typ & Helmholtz-Thévenin & Mayer-Norton\\
-            &\includegraphics[width=.3\linewidth]{img/helmholtz-thevenin}&
-            \includegraphics[width=.3\linewidth]{img/mayer-norton}\\
-            Zustandsgröße & $x(t) = u_C(t)$ & $x(t) = i_L(t)$\\
-            Zeitkonstante & $\tau = RC$ & $\tau = GL$\\
-            GGP (Erreg. konst.) & $u_{C,\infty}=u_0(t)$ & $i_{L,\infty}=i_0(t)$ \\
-            \brule
-        \end{tabular*}
-    }
+        \textbf{I. Resistives ESB bestimmen}\\
+        \tablebox{
+            \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}l|ll@{}} \trule
+                & Kapazität & Induktivität \\ \mrule
+                ESB-Typ & Helmholtz-Thévenin & Mayer-Norton\\
+                &\includegraphics[width=.3\linewidth]{img/helmholtz-thevenin}&
+                \includegraphics[width=.3\linewidth]{img/mayer-norton}\\
+                Zustandsgröße & $x(t) = u_C(t)$ & $x(t) = i_L(t)$\\
+                Zeitkonstante & $\tau = RC$ & $\tau = GL$\\
+                GGP (Erreg. konst.) & $u_{C,\infty}=u_0(t)$ & $i_{L,\infty}=i_0(t)$ \\
+                \brule
+            \end{tabular*}
+        }
 
-    \textbf{II. Aufstellen DGL} (kanonische Form)\\
-    $\dot x(t) = - \fr{1}{\tau}x(t) + \fr{1}{\tau}v(t)$ mit der Erregung $v(t)$\\
-    \textbf{III. Lösen der DGL}\\
-    Konstante Erregung:  $x(t) = \overbrace{x_\infty}^{\text{GGP}} + (x_0 - x_\infty )\e^{-\frac{t-t_0}{\tau}}$ \\
-    Allgemeine Erregung: $x(t) = \underbrace{x_0\e^{-\frac{t-t_0}{\tau}}}_{\text{zero-input-response}}+\underbrace{\int_{t_0}^t{\frac{1}{\tau}v(t')\e^{-\frac{t-t'}{\tau}}}}_{\text{zero-state-response}}$ \\
-    mit $u_{C,\infty}=U_0$ bzw. $i_{L,\infty}=I_0$\\
-    \textbf{IV. Dynamischer Pfad}\\
-    \tablebox{
-        \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll@{}} \trule
+        \textbf{II. Aufstellen DGL} (kanonische Form)\\
+        $\dot x(t) = - \fr{1}{\tau}x(t) + \fr{1}{\tau}v(t)$ mit der Erregung $v(t)$\\
+        \textbf{III. Lösen der DGL}\\
+        Konstante Erregung:  $x(t) = \overbrace{x_\infty}^{\text{GGP}} + (x_0 - x_\infty )\e^{-\frac{t-t_0}{\tau}}$ \\
+        Allgemeine Erregung: $x(t) = \underbrace{x_0\e^{-\frac{t-t_0}{\tau}}}_{\text{zero-input-response}}+\underbrace{\int_{t_0}^t{\frac{1}{\tau}v(t')\e^{-\frac{t-t'}{\tau}}}}_{\text{zero-state-response}}$ \\
+        mit $u_{C,\infty}=U_0$ bzw. $i_{L,\infty}=I_0$\\
+        \textbf{IV. Dynamischer Pfad}\\
+        \tablebox{
+            \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll@{}} \trule
+                Kapazität & Induktivität\\ \mrule
+                $u=u_C, i=-i_C$ & $u=-u_L, i=i_L$ \\ \mrule
+                $i < 0$: $u$ wird größer & $u < 0$: $i$ wird größer\\
+                $i > 0$: $u$ wird kleiner & $u > 0$: $i$ wird kleiner\\
+                $i = 0$: GGP & $u = 0$: GGP\\
+                \brule
+            \end{tabular*}
+        }
+        \textbf{Toter Punkt:} kein GGP, aber Pfad kann nicht fortgesetzt werden \ra Sprung der nicht stetigen Größe ($i_C$ oder $u_L$)\\
+        \textbf{Gleichgewichtspunkt (GGP):}\\
+        Punkt der Kennlinie im u-i-Diagramm, wo die Ableitung der Zustandsgröße(n) gleich 0 ist ($\vec{\dot x}(t)=0$ bzw. $\dot u_C=0$ bzw. $\dot i_L=0$). Daraus folgt $i_C=u_L=0$
+        \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll@{}}
             Kapazität & Induktivität\\ \mrule
-            $u=u_C, i=-i_C$ & $u=-u_L, i=i_L$ \\ \mrule
-            $i < 0$: $u$ wird größer & $u < 0$: $i$ wird größer\\
-            $i > 0$: $u$ wird kleiner & $u > 0$: $i$ wird kleiner\\
-            $i = 0$: GGP & $u = 0$: GGP\\
-            \brule
+            $\dot u_F = 0 \ra i_F = 0$ & $\dot i_F = 0 \ra u_F = 0$\\
+            \mrule
         \end{tabular*}
-    }
-    \textbf{Toter Punkt:} kein GGP, aber Pfad kann nicht fortgesetzt werden \ra Sprung der nicht stetigen Größe ($i_C$ oder $u_L$)\\
-    \textbf{Gleichgewichtspunkt (GGP):}\\
-    Punkt der Kennlinie im u-i-Diagramm, wo die Ableitung der Zustandsgröße(n) gleich 0 ist ($\vec{\dot x}(t)=0$ bzw. $\dot u_C=0$ bzw. $\dot i_L=0$). Daraus folgt $i_C=u_L=0$
-    \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll@{}}
-        Kapazität & Induktivität\\ \mrule
-        $\dot u_F = 0 \ra i_F = 0$ & $\dot i_F = 0 \ra u_F = 0$\\
-        \mrule
-    \end{tabular*}
-    \begin{itemize}
-        \item[a)] stabil, falls der Pfad zum GGP konvergiert/im GGP ist
-        \item[b)] instabil, falls sich der Pfad vom GGP wegbewegt
-        \item[c)] virtuell, falls der Pfad in einen toten Punkt auf dem verlängertem Pfad auf der Achse läuft
-    \end{itemize}
+        \begin{itemize}
+            \item[a)] stabil, falls der Pfad zum GGP konvergiert/im GGP ist
+            \item[b)] instabil, falls sich der Pfad vom GGP wegbewegt
+            \item[c)] virtuell, falls der Pfad in einen toten Punkt auf dem verlängertem Pfad auf der Achse läuft
+        \end{itemize}
     }
 
     \subsection{Stabile Schaltung ($\tau > 0$)}
@@ -1389,15 +1389,15 @@
     \textbf{I. Bestimmung der Eigenwerte $\lambda_i$ und Eigenvektoren $q_i$ von $\ma A$}\\
     $\lambda_{1,2} = \frac{tr(\ma A)}{2} \pm \sqrt{\frac{tr(\ma A)^2}{4}-det(\ma A)}$\\
     $a_{12} \neq 0 \Rightarrow \mathbf{q}i = \begin{bmatrix}-a{12}\\a_{11}-\lambda_i\end{bmatrix}$\quad $a_{21} \neq 0 \Rightarrow \mathbf{q}i = \begin{bmatrix}a{22}-\lambda_i\\-a_{21}\end{bmatrix}$\quad$a_{12} = a_{21} = 0 \Rightarrow \mathbf{q}_1 = \begin{bmatrix}1\\0\end{bmatrix}, \mathbf{q}_2 = \begin{bmatrix}0\\1\end{bmatrix}$\\
-    Falls Eigenvektoren komplex: $\mathbf{q}_r = \Re{q_1}$\qquad$\mathbf{q}_i = \Im{q_1}$\\
+    Falls Eigenvektoren komplex: $\mathbf{q}_r = \Re{q_1}$\qquad$\mathbf{q}_i = \Im{q_1}$ mit $\lambda_1$ der EW mit positivem Imaginärteil\\
     \textbf{II. Bestimmung des Fixpunktes}\\
     $\mathbf{A}\mathbf{x}\infty + \mathbf{B}\mathbf{v} = 0 \Rightarrow \mathbf{x}\infty = -\mathbf{A}^{-1} \mathbf{B}\mathbf{v}$\\
     \textbf{III. Art des Phasenportraits}\\
     \textbf{Strudelpunkt}\\
-    $\lambda_{1} = \lambda_2^* = \alpha + \beta j$, $\alpha \neq 0$: Je nach $\sgn(\alpha)$ stabiler (-) oder instabiler (+) Strudel in Drehrichtung von $\mathbf{q}r$ ($\xi{\text{reel}1}$) nach $-\mathbf{q}i$ ($\xi{\text{reel}2}$)\\
+    $\lambda_{1} = \lambda_2^* = \alpha + \beta j$, $\alpha \neq 0$: Je nach $\sgn(\alpha)$ stabiler (-) oder instabiler (+) Strudel in Drehrichtung von $\mathbf{q}r$ ($\xi{\text{reel}1}$) nach $-\mathbf{q}i$ ($\xi{\text{reel}2}$) (für $\mathbf{q}_i > 0$ in Richtung Uhrzeigersinn)\\
     \includegraphics[width=.7\linewidth]{phase-strudel}\\
     \textbf{Wirbelpunkt} (instabil)\\
-    $\lambda_{1} = \lambda_2^* = \beta j$: Wirbel in Drehrichtung von $\mathbf{q}r$ ($\xi{\text{reel}1}$) nach $-\mathbf{q}i$ ($\xi{\text{reel}2}$)\\
+    $\lambda_{1} = \lambda_2^* = \beta j$: Wirbel in Drehrichtung von $\mathbf{q}r$ ($\xi{\text{reel}1}$) nach $-\mathbf{q}i$ ($\xi{\text{reel}2}$)  (für $\mathbf{q}_i > 0$ in Richtung Uhrzeigersinn)\\
     \includegraphics[width=.7\linewidth]{phase-wirbel}\\
     \textbf{Knotenpunkt}\\
     $\lambda_{1,2} \in \mathbb R < 0, |\lambda_1| < |\lambda_2|$: Trajektorien von Richtung (Eigenvektor) des schnelleren Eigenwerts ($\mathbf{q}_2, \xi_2$) schmiegen sich an an Richtung des langsameren Eigenwerts ($\mathbf{q}_1, \xi_1$). Stabil für $\lambda_1,\lambda_2 < 0$, instabil sonst. Falls $\lambda_1=\lambda_2$, so sind Trajektorien Geraden \\
@@ -1429,7 +1429,7 @@
         \includegraphics[width=.8\linewidth]{img/aperiodic-dampened.png} \\
         \includegraphics[width=.8\linewidth]{img/strong-dampened.png} \\
     \end{center}
-    
+
     \subsection{Sprung- und Impulsantwort (analog zu \ref{sec:Sprung- und Impulsantwort})}
     Zustandsgleichung der Form $\dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t)+\mathbf{b}v(t)$.\\
     Ausgangsgleichung der Form $y(t) = \mathbf{c}^T\mathbf{x}(t) + dv(t)$.
@@ -1455,9 +1455,9 @@
         \subsection{Federschwinger}
         Feder mit Federkonstante $k$ an der Decke befestigt mit einer Masse $m$ und Auslenkung $z$ nach unten.
         \begin{description}
-            \item[Rückstellkraft] $F_F=kz$
-            \item[Trägheit] $F_T=m\ddot z$
-            \item[Gewichtskraft] $F_G=mg$
+        \item[Rückstellkraft] $F_F=kz$
+        \item[Trägheit] $F_T=m\ddot z$
+        \item[Gewichtskraft] $F_G=mg$
         \end{description}
         Kräftegleichgewicht: $F_F+F_T-F_G=0$, mit $\ddot z = \dot s$ folgt die DGL 2. Grades
         \begin{equation*}
@@ -1485,22 +1485,22 @@
         \subsection{Zustandsbeschreibungen}
         \textbf{Kapazität}
         \begin{description}[labelindent=3mm]
-            \item[spannungsgesteuert]: $u$ ist die Zustandsgröße
-            \item[nur ladungsgesteuert]: $q$ ist die Zustandsgröße
+        \item[spannungsgesteuert]: $u$ ist die Zustandsgröße
+        \item[nur ladungsgesteuert]: $q$ ist die Zustandsgröße
         \end{description}
 
         \textbf{Induktivität}
         \begin{description}[labelindent=3mm]
-            \item[stromgesteuert]: $i$ ist die Zustandsgröße
-            \item[nur flussgesteuert]: $\Phi$ ist die Zustandsgröße
+        \item[stromgesteuert]: $i$ ist die Zustandsgröße
+        \item[nur flussgesteuert]: $\Phi$ ist die Zustandsgröße
         \end{description}
 
         \begin{enumerate}
-            \item Alle Gleichgewichtspunkte bestimmen $\mathbf{f}(x_\infty) \stackrel{!}{=} \mathbf{0}$
-            \item Jacobimatrix bestimmen
-            \item Gleichgewichtspunkte in Jacobimatrix einsetzen und Eigenwerte und Eigenvektoren bestimmen
-            \item Überprüfen des \textbf{Satzes von Hartmann/Grobmann}: \\Für alle Eigenwerte muss gelten: $\Re{\lambda_i} \neq 0$, ansonsten kann man die Linearisierung mit Jacobimatrix nicht anwenden (und muss ggf. mit konservativen Systemen argumentieren)
-            \item Phasenportrait zeichnen (lokale Phasenportraits (Phasenportrait zu einem bestimmten GGP) stetig verbinden)
+        \item Alle Gleichgewichtspunkte bestimmen $\mathbf{f}(x_\infty) \stackrel{!}{=} \mathbf{0}$
+        \item Jacobimatrix bestimmen
+        \item Gleichgewichtspunkte in Jacobimatrix einsetzen und Eigenwerte und Eigenvektoren bestimmen
+        \item Überprüfen des \textbf{Satzes von Hartmann/Grobmann}: \\Für alle Eigenwerte muss gelten: $\Re{\lambda_i} \neq 0$, ansonsten kann man die Linearisierung mit Jacobimatrix nicht anwenden (und muss ggf. mit konservativen Systemen argumentieren)
+        \item Phasenportrait zeichnen (lokale Phasenportraits (Phasenportrait zu einem bestimmten GGP) stetig verbinden)
         \end{enumerate}
         \subsection{Energiefunktion $E(\mathbf{x})$}
         Eigenschaften: stetig, lokal nicht konstant, auf jeder Trajektorie konstant\\
@@ -1508,16 +1508,16 @@
     $\dot{E} = 0 \Leftrightarrow \frac{\partial E(\mathbf{x})}{\partial x_1} \dot{x}(t)_1 + \frac{\partial E(\mathbf{x})}{\partial x_2} \dot{x}(t)_2 + \hdots + \frac{\partial E(\mathbf{x})}{\partial x_n} \dot{x}(t)_n = 0$
         \subsubsection{Eigenschaften konservativer Schaltungen}
         \sectionbox{
-            \begin{itemize}
-                \item GGP ist entweder Sattelpunkt, Wirbelpunkt, oder GGP mit verschwindenden Eigenwert ($\lambda_i=0$) $\rightarrow$ keine rein stabilen GGPs
-                \item Erweiterung des Satzes von Hartmann/Grobmann: Jacobimatrix hat nur imaginäre Eigenwerte und Schaltung ist konservativ $\Leftrightarrow$ GGP ist Wirbelpunkt
-            \end{itemize}
+        \begin{itemize}
+        \item GGP ist entweder Sattelpunkt, Wirbelpunkt, oder GGP mit verschwindenden Eigenwert ($\lambda_i=0$) $\rightarrow$ keine rein stabilen GGPs
+        \item Erweiterung des Satzes von Hartmann/Grobmann: Jacobimatrix hat nur imaginäre Eigenwerte und Schaltung ist konservativ $\Leftrightarrow$ GGP ist Wirbelpunkt
+        \end{itemize}
         }
         \subsubsection{Zeichnen des Phasenportraits bei konservativen Schaltungen}
         \begin{enumerate}
-            \item Energiefunktion gegeben durch z.B. $E(\xi_1,\xi_2)=...$
-            \item Befindet man sich auf der Trajektorie $\Gamma$, so gilt $E(\Gamma)=E(\xi_1,\xi_2)=...$
-            \item Löst man nach z.B. $\xi_2$ auf, so erhält man die Funktion $\xi_2(\xi_1)$, welche man zeichnen kann
+        \item Energiefunktion gegeben durch z.B. $E(\xi_1,\xi_2)=...$
+        \item Befindet man sich auf der Trajektorie $\Gamma$, so gilt $E(\Gamma)=E(\xi_1,\xi_2)=...$
+        \item Löst man nach z.B. $\xi_2$ auf, so erhält man die Funktion $\xi_2(\xi_1)$, welche man zeichnen kann
         \end{enumerate}
 
         \subsection{Oszillatoren}
@@ -1544,14 +1544,14 @@
     $f(t) = \mathcal L^{-1}\{F(p)\} = \fr{1}{2\pi j}\int_{\gamma-j\infty}^{\gamma+j\infty} F(p) \e^{-pt}dt$\\
         \subsubsection{Rechenregeln}
         \begin{itemize}
-            \item Linearität: $\mathcal L\{\alpha f(t) + \beta g(t)\} = \alpha F(p) + \beta G(p)$
-            \item Differentiationssatz: $\mathcal L\{\dot f(t)\} = pF(p) - f(0)$
-            \item Faltung: $\mathcal L\{(a * b)(t)\} = A(p)B(p)$
+        \item Linearität: $\mathcal L\{\alpha f(t) + \beta g(t)\} = \alpha F(p) + \beta G(p)$
+        \item Differentiationssatz: $\mathcal L\{\dot f(t)\} = pF(p) - f(0)$
+        \item Faltung: $\mathcal L\{(a * b)(t)\} = A(p)B(p)$
         \end{itemize}
         \subsubsection{Wichtige Laplace-Transformationen}
         \begin{itemize}
-            \item $\mathcal L\{\alpha\e^{\beta t}\} = \fr{\alpha}{p-\beta}$
-            \item $\mathcal L\{\e^{\ma At}\} = \fr{1}{p\ma 1 - \ma A}$
+        \item $\mathcal L\{\alpha\e^{\beta t}\} = \fr{\alpha}{p-\beta}$
+        \item $\mathcal L\{\e^{\ma At}\} = \fr{1}{p\ma 1 - \ma A}$
         \end{itemize}
         Allgemeine Lösung im Frequenzraum:\\
     $x(p) = \fr{1}{p\ma 1-\ma A}x_0 + \fr{1}{p\ma 1-\ma A}bV(p)$\\
@@ -1577,16 +1577,16 @@
         \subsection{Bodediagramm}
         %TODO Graph, verschiedene Typen (siehe Tut Teutsch)
         \begin{enumerate}
-            \item Übertragungsfunktion faktorisieren\\
-                  $H(jw) = K \cdot \prod_{n=1}^n \left(x_n+\frac{jw}{w_n}\right)^{z_n}$\qquad$z_n \in \mathbb{Z} \ \{0\}$\\
-            \item Logarithmierte Beträge der einzelnen Faktoren aufstellen\\
-                  \quad a) Konstanter Faktor: $y = 20\cdot\log_{10}(K)$dB\\
-                  \quad b) Falls $x_n = 0$: Gerade durch $(\omega_n, 0$dB$)$\\
-                  \quad c) Falls $z_n < 0$: Bis $\omega_n$ Funktion gleich 0dB, dann linear um $20 \cdot\log_{10}(x_n)$dB pro Dekade fallend\\
-                  \quad d) Falls $z_n > 0$: Bis $\omega_n$ Funktion gleich 0dB, dann linear um $20 \cdot\log_{10}(x_n)$dB pro Dekade steigend\\
-            \item Phase der Faktoren bestimmen
-            \item Logarithmierte Beträge und Phasen aufaddieren
-            \item Separates Zeichnen des Betrages $v(\omega)$ und der Phase $\phi(\omega)$ in zwei Diagramme
+        \item Übertragungsfunktion faktorisieren\\
+    $H(jw) = K \cdot \prod_{n=1}^n \left(x_n+\frac{jw}{w_n}\right)^{z_n}$\qquad$z_n \in \mathbb{Z} \ \{0\}$\\
+        \item Logarithmierte Beträge der einzelnen Faktoren aufstellen\\
+        \quad a) Konstanter Faktor: $y = 20\cdot\log_{10}(K)$dB\\
+        \quad b) Falls $x_n = 0$: Gerade durch $(\omega_n, 0$dB$)$\\
+        \quad c) Falls $z_n < 0$: Bis $\omega_n$ Funktion gleich 0dB, dann linear um $20 \cdot\log_{10}(x_n)$dB pro Dekade fallend\\
+        \quad d) Falls $z_n > 0$: Bis $\omega_n$ Funktion gleich 0dB, dann linear um $20 \cdot\log_{10}(x_n)$dB pro Dekade steigend\\
+        \item Phase der Faktoren bestimmen
+        \item Logarithmierte Beträge und Phasen aufaddieren
+        \item Separates Zeichnen des Betrages $v(\omega)$ und der Phase $\phi(\omega)$ in zwei Diagramme
         \end{enumerate}
         \subsection{Ortskurve}
         \begin{enumerate}
@@ -1609,24 +1609,24 @@
         Resonanzfrequenz: $\omega_0 = \sqrt{\frac{1}{LC}}$\\
         Gütefaktor: $Q = \frac{\omega_0C}{G} = \frac{1}{\omega_0LG} = \frac{\sqrt{C}}{G\sqrt{L}}$\\
         Eigenfrequenzen: $p_{\infty,1,2} = -\frac{\omega_0}{2Q}\pm \frac{\omega_0}{2Q}\sqrt{1-4Q^2}$
-    \section{SPICE}
-    \renewcommand{\t}{\texttt}
-    \subsection{Bauteile}
-    \begin{itemize}
-        \item \t{L<Name> <Knoten1> <Knoten2> <Wert>}: Spule zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Induktivität \t{<Wert>}
-        \item \t{C<Name> <Knoten1> <Knoten2> <Wert>}: Kondensator zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Kapazität \t{<Wert>}
-        \item \t{R<Name> <Knoten1> <Knoten2> <Wert>}: Widerstand zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Widerstandswert \t{<Wert>}
-        \item \t{U<Name> <Knoten1> <Knoten2> <Wert>}: Spannungsquelle zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Spannung \t{<Wert>} (Spannung positiv bei \t{<Knoten1>})
-        \item \t{I<Name> <Knoten1> <Knoten2> <Wert>}: Stromquelle zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Stromstärke \t{<Wert>} (Strom in Richtung \t{<Knoten2>})
-    \end{itemize}
-    \subsection{Parameterbefehle}
-    \begin{itemize}
+        \section{SPICE}
+        \renewcommand{\t}{\texttt}
+        \subsection{Bauteile}
+        \begin{itemize}
+            \item \t{L<Name> <Knoten1> <Knoten2> <Wert>}: Spule zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Induktivität \t{<Wert>}
+            \item \t{C<Name> <Knoten1> <Knoten2> <Wert>}: Kondensator zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Kapazität \t{<Wert>}
+            \item \t{R<Name> <Knoten1> <Knoten2> <Wert>}: Widerstand zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Widerstandswert \t{<Wert>}
+            \item \t{U<Name> <Knoten1> <Knoten2> <Wert>}: Spannungsquelle zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Spannung \t{<Wert>} (Spannung positiv bei \t{<Knoten1>})
+            \item \t{I<Name> <Knoten1> <Knoten2> <Wert>}: Stromquelle zwischen Knoten \t{<Knoten1>} und Knoten \t{<Knoten2>} mit Stromstärke \t{<Wert>} (Strom in Richtung \t{<Knoten2>})
+        \end{itemize}
+        \subsection{Parameterbefehle}
+        \begin{itemize}
         \item \t{.step param <Param> <Start> <End> <Step>}: Alle Parameter \t{\{<Param>\}} werden vom Startwert \t{<Start>} bis \t{<End>} während der Simulation als Treppenfunktion mit Schrittweite \t{<Step>} eingesetzt.
         \item \t{.step param <Param> list <Wert1> <Wert2> ...}: Simulation wird $n$ mal für jeden Parameterwert durchgeführt.
         \item \t{.step oct param <Param> <Start> <End> <StepsPerOct>}
-    \end{itemize}
-    \subsection{Analysearten}
-    \begin{itemize}
+        \end{itemize}
+        \subsection{Analysearten}
+        \begin{itemize}
         \item \t{.tran <Endtime>}: Transientenanalyse im Zeitbereich von $t = 0$ bis $t = \text{\t{<Endtime>}}$. Bsp.: \t{.trans 60us}
     \end{itemize}
 
