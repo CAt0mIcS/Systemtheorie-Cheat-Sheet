@@ -7,6 +7,7 @@
 \usepackage{tcolorbox}
 \usepackage{latexnew}
 \usepackage{enumitem}
+\usepackage{scalerel,stackengine}
 
 
 % UPDATE WITHOUT CLASS CHANGE
@@ -75,6 +76,9 @@
 \titlespacing*{\subsection} {0pt}{0.5ex}{2.0ex}
 \titleformat{\subsubsection}
 {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\newcommand\equalhat{\mathrel{\stackon[1.5pt]{=}{\stretchto{%
+                \scalerel*[\widthof{=}]{\wedge}{\rule{1ex}{3ex}}}{0.5ex}}}}
 
 
 % Aufteilung in Spalten
@@ -1410,7 +1414,7 @@
     \includegraphics[width=.6\linewidth]{phase-sattel}\\
 
     \subsubsection{Übersicht Phasenportraits}
-    \includegraphics[width=\linewidth]{img/phasenportraits.png}
+    \includegraphics[width=\linewidth]{img/phasenportraits.pdf}
 
 
     \textbf{IV. Einzeichnen von GGP und Eigenvektoren}\\
@@ -1458,7 +1462,8 @@
         \subsubsection{Transientenantwort}
         Antwort des Systems während des Einschwingzustands. $\rightarrow 0$
         Die Summe der Polstellen von $H(j\omega)$ ist die Transientenantwort.\\
-    $\mathbf{x}{\text{trans}}(t) = \exp{(\mathbf{A}t)} \cdot \mathbf{x}{\text{trans}}(t)$ \\
+    $\vec X_{\text{trans}}(p)=(p\ma 1 - \ma A)\underbrace{(\vec x(0) - \vec x'(0))}_{\vec x_{\text{trans}}(0)}$\\
+    $\mathbf{x}_{\text{trans}}(t) = \exp{(\mathbf{A}t)} \cdot \mathbf{x}_{\text{trans}}(0)$ \\
 
 
 
@@ -1541,14 +1546,14 @@
         \includegraphics[width=.5\linewidth]{img/relaxationsoszillator-schaltung}
 
         \sectionbox{
-            \subsection{Lotka-Volterra-Gleichungen}
-            Biologisches System mit Beute $p_1(t)$ und Jäger $p_2(t)$ konservativ.
-            \begin{align*}
-                \dot{p}_1(t)=[\alpha_1-\beta_1p_2(t)]p_1(t) \\
-                \dot{p}_2(t)=[-\alpha_2+\beta_2p_1(t)]p_2(t)
-            \end{align*}
+        \subsection{Lotka-Volterra-Gleichungen}
+        Biologisches System mit Beute $p_1(t)$ und Jäger $p_2(t)$ konservativ.
+        \begin{align*}
+            \dot{p}_1(t)=[\alpha_1-\beta_1p_2(t)]p_1(t) \\
+            \dot{p}_2(t)=[-\alpha_2+\beta_2p_1(t)]p_2(t)
+        \end{align*}
         }
-        
+
         \section{Dynamische Schaltungen beliebigen Grades}
         \subsection{Verallgemeinerte Zustandsgleichungen}
     $\frac{d}{dt} \underbrace{\begin{bmatrix}\mathbf{0} & \mathbf{0}\\\mathbf{0} & \mathbf{0}\\\mathbf{M}_1 & \mathbf{N}_1\end{bmatrix}}_{\ma D}\begin{bmatrix}\mathbf{u}\\\mathbf{i}\end{bmatrix} = \underbrace{ - \begin{bmatrix} \mathbf{B} & \mathbf{0} \\ \mathbf{0} & \mathbf{A} \\ \mathbf{M}_0 & \mathbf{N}_0\end{bmatrix}}_{\ma F}\begin{bmatrix}\mathbf{u}\\\mathbf{i}\end{bmatrix} + \begin{bmatrix}\mathbf{0}\\\mathbf{0}\\\mathbf{e}\end{bmatrix}$\\
@@ -1563,7 +1568,7 @@
         \section{Analyse dynamischer Systeme im Frequenzbereich}
         \subsection{Laplace-Transformation}
         Für kausale Funktionen mit $f(t) = 0$ für $t < 0$:\\
-    $F(p) = \mathcal L\{f(t)\} = \int_0^\infty f(t) \e^{-pt}dt$\\
+    $F(p) = \mathcal L\{f(t)\} = \int_0^\infty f(t) \e^{-pt}dt$ mit $p$: komplexe Frequenz\\
         Rücktransformation: \\
     $f(t) = \mathcal L^{-1}\{F(p)\} = \fr{1}{2\pi j}\int_{\gamma-j\infty}^{\gamma+j\infty} F(p) \e^{-pt}dt$\\
         \subsubsection{Rechenregeln}
@@ -1572,22 +1577,53 @@
         \item Differentiationssatz: $\mathcal L\{\dot f(t)\} = pF(p) - f(0)$
         \item Faltung: $\mathcal L\{(a * b)(t)\} = A(p)B(p)$
         \end{itemize}
+        \sectionbox{
         \subsubsection{Wichtige Laplace-Transformationen}
         \begin{itemize}
         \item $\mathcal L\{\alpha\e^{\beta t}\} = \fr{\alpha}{p-\beta}$
-        \item $\mathcal L\{\e^{\ma At}\} = \fr{1}{p\ma 1 - \ma A}$
+        \item $\mathcal L\{\e^{\ma At}\} = (p\ma 1 - \ma A)^{-1}$
+        \item $\mathcal L\{\delta(t)\}=1$
         \end{itemize}
-        Allgemeine Lösung im Frequenzraum:\\
-    $x(p) = \fr{1}{p\ma 1-\ma A}x_0 + \fr{1}{p\ma 1-\ma A}bV(p)$\\
-    $x(t) = x(0)\e^{\ma At} + \int_0^t \e^{\ma A(t-t')}v(t')b dt'$
+        \subsubsection{Allgemeine Lösung im Frequenzraum}
+    $\vec X(p) = \underbrace{(p\ma 1-\ma A)^{-1}\vec x(0)}_{\vec X_{ZI}(p)} + \underbrace{(p\ma 1-\ma A)^{-1}\vec bV(p)}_{\vec X_{ZS}(p)}$\\
+    $\vec x(t) = \vec x(0)\e^{\ma At} + \int_0^t \e^{\ma A(t-t')}v(t')\vec b dt'$
+        }
+
+        \subsection{Reduzierte Knotenspannungsanalyse}
+        \begin{equation*}
+            \underbrace{\ma Y_k}_{\text{Knotenadmittanzmatrix}}\vec U_k(p)=\vec E(p)
+        \end{equation*}
+        \textbf{Eintragen von Reaktanzen}
+        \begin{enumerate}
+        \item[] \begin{description}
+        \item[Kapazität] $pC_n$
+        \item[Induktivität] $\frac{1}{pL_n}$
+        \end{description}
+        \end{enumerate}
+
         \subsection{Übertragungsfunktion}
-    $H(j\omega ) = \fr{\text{Ausgang}}{\text{Eingang}}$\\
-        Nullstellen des Ausgangs werden als $p_{0,i}$ bezeichnet\\
-        Nullstellen des Eingangs werden als \textbf{Eigenfrequenzen} $p_{\infty,i}$ bezeichnet\\
-        Polstellen $p_{\infty, i}$ von $H(j\omega)$ sind die Eigenwerte der Systemmatrix\\
+        \sectionbox{
+        \emphbox{
+    $H(j\omega ) = H(p) = \fr{\text{Ausgang}}{\text{Eingang}}$
+        } \\
+
+        \begin{itemize}
+        \item $p_{0,i}$: Nullstellen des Ausgangs
+        \item \textbf{Eigenfrequenzen} $p_{\infty, i}$: Nullstellen des Eingangs \\
+    $\equalhat$ Polstellen von $H(j\omega)$ \\
+    $\equalhat$ Charakteristisches Polynom von $\ma A$ \\
+    $\equalhat$ Eigenwerte von $\ma A$
+        \end{itemize}
+
+        \vspace{.5em}
+    $Y(p)=H(p)V(p) \rightarrow y(t)=h(t) * v(t)$ \\
+    $y_{ZS}(t)=\mathcal L\{Y(p)\}$ \\
+    $y_{ZI}(t)=\sum_{i=1}^{n}y_{0,i}e^{p_{\infty,i}}t$
+        }
+
         \textbf{Bestimmung der Differentialgleichung:}\\
-    $H(\j\omega) = \frac{U_A}{U_E} = \frac{a_0 + a_1 \j\omega + a_2 (\j\omega)^2}{e_0 + e_1 \j\omega + e_2 (\j\omega)^2}$\\
-    $U_A (e_0 + e_1 \j\omega + e_2 (\j\omega)^2) = U_E  (a_0 + a_1 \j\omega + a_2 (\j\omega)^2)$\\
+    $H(j\omega) = \frac{U_A}{U_E} = \frac{a_0 + a_1 j\omega + a_2 (j\omega)^2}{e_0 + e_1 j\omega + e_2 (j\omega)^2}$\\
+    $U_A (e_0 + e_1 j\omega + e_2 (j\omega)^2) = U_E  (a_0 + a_1 j\omega + a_2 (j\omega)^2)$\\
     $e_0 u_a(t) + e_1 \dot{u}_a(t) + e_2 \ddot{u}_a(t) = a_0 u_e(t) + e_1 \dot{u}_e(t) + e_2 \ddot{u}_e(t)$\\
         3dB-\textbf{Grenzfrequenz:} $\abs{H(j\omega)}^2 = \fr{1}{2}$\\
         \textbf{Stabilität:} Re$\{p_{\infty,i}\} < 0$ \quad $\forall i$\\
