@@ -974,8 +974,10 @@
         $I_{eff} = \frac{1}{\sqrt{2}}I_m$\\
         \textbf{Momentanleistung}: $p(t) = u(t)i(t)$\\
         \textbf{Energie einer Periode}: $E=\int_0^Tu(t)i(t)dt=P_WT$\\
-        \textbf{Leistungsmittelwert}: $P_w = \frac{1}{T} \int_0^T u(t)i(t)dt$\\
-        \textbf{Komplexe Leistung}: $P = \frac{1}{2}UI^* = \frac{1}{2}U_m e^{j\phi_u} I_m e^{-j\phi_i} = U_{eff} I_{eff} e^{j(\phi_u-\phi_i)}$\\
+        \textbf{Leistungsmittelwert}: $P_w = \frac{1}{T} \int_0^T u(t)i(t)dt=\Re{P(j\omega)}$\\
+        \textbf{Komplexe Leistung}: $P = \frac{1}{2}UI^* = \frac{1}{2}U_m e^{j\phi_u} I_m e^{-j\phi_i} = U_{eff} I_{eff} e^{j(\phi_u-\phi_i)}=$ \\
+        $=\frac{1}{2}\Re{Z(j\omega)}|I|^2+j\frac{1}{2}\Im{Z(j\omega)}|I|^2$\\
+        $=\frac{1}{2}\Re{Y(j\omega)}|U|^2-j\frac{1}{2}\Im{Y(j\omega)}|U|^2$\\
         \textbf{Scheinleistung}: $S = |P|$\\
         \textbf{Wirkleistung}: $P_w = \Re{P}$\\
         \textbf{Blindleistung}: $P_B = \Im{P}$
@@ -998,9 +1000,9 @@
             \end{bmatrix}$
 
         \subsubsection{Cramer'sche Regel}
-        Für ein lineares Gleichungssystem $\ma A  \vec x = \vec y$ gilt:
-        \[x_i=\frac{\det \ma A_i}{\det \ma A}\]
-        wobei $\ma A_i$ aus $\ma A$ entsteht, wenn man die $i$-te Spalte mit dem Vektor $\vec y$ ersetzt.
+        Für ein lineares Gleichungssystem $\ma Y  \vec u_k = \vec i_q$ gilt:
+        \[u_{k,m}=\frac{(-1)^{i+m}\det \ma Y_{im}}{\det \ma Y}\] \\
+        wobei aus $Y_{im}$ die $i$-te Zeile und $m$-te Spalte gestrichen wird und $i$ der Index des einzigen Eintrags in $\vec i_q$ ist.
     }
 
     \sectionbox{
@@ -1591,7 +1593,7 @@
 
         \subsection{Reduzierte Knotenspannungsanalyse}
         \begin{equation*}
-            \underbrace{\ma Y_k}_{\text{Knotenadmittanzmatrix}}\vec U_k(p)=\vec E(p)
+            \underbrace{\ma Y_k}_{\text{Knotenadmittanzmatrix}}\vec U_k(p)=\vec I_q(p)
         \end{equation*}
         \textbf{Eintragen von Reaktanzen}
         \begin{enumerate}
@@ -1604,7 +1606,7 @@
         \subsection{Übertragungsfunktion}
         \sectionbox{
         \emphbox{
-    $H(j\omega ) = H(p) = \fr{\text{Ausgang}}{\text{Eingang}}$
+    $H(j\omega ) = H(p) = \mathcal{L}\{h(t)\} = \fr{\text{Ausgang}}{\text{Eingang}}$
         } \\
 
         \begin{itemize}
@@ -1627,13 +1629,17 @@
     $e_0 u_a(t) + e_1 \dot{u}_a(t) + e_2 \ddot{u}_a(t) = a_0 u_e(t) + e_1 \dot{u}_e(t) + e_2 \ddot{u}_e(t)$\\
         3dB-\textbf{Grenzfrequenz:} $\abs{H(j\omega)}^2 = \fr{1}{2}$\\
         \textbf{Stabilität:} Re$\{p_{\infty,i}\} < 0$ \quad $\forall i$\\
+
+        \sectionbox{
         Darstellung einer Schaltung in Abhängigkeit der Frequenz\\
     $H(j\omega) = \abs{H(j\omega)} \exp (j\angle H(j\omega))$\\
-    $\phi (\omega) = \angle H(j\omega) = \begin{cases}
+    $\varphi (\omega) = \angle H(j\omega) = \begin{cases}
         \arctan\frac{\text{Im}\{H(j\omega)\}}{\text{Re}\{H(j\omega)\}}     & $für $\text{Re}\{H(j\omega)\} \geq 0 \\
         \arctan\frac{\text{Im}\{H(j\omega)\}}{\text{Re}\{H(j\omega)\}}+\pi & $für $\text{Re}\{H(j\omega)\} < 0    \\
     \end{cases}$\\
         logarithmierte Darstellung des Betrages: $v(\omega) = 20 \log_{10} \abs{H(j\omega)}$\\
+        }
+
         \subsection{Bodediagramm}
         %TODO Graph, verschiedene Typen (siehe Tut Teutsch)
         \begin{enumerate}
@@ -1646,7 +1652,7 @@
         \quad d) Falls $z_n > 0$: Bis $\omega_n$ Funktion gleich 0dB, dann linear um $20 \cdot\log_{10}(x_n)$dB pro Dekade steigend\\
         \item Phase der Faktoren bestimmen
         \item Logarithmierte Beträge und Phasen aufaddieren
-        \item Separates Zeichnen des Betrages $v(\omega)$ und der Phase $\phi(\omega)$ in zwei Diagramme
+        \item Separates Zeichnen des Betrages $v(\omega)$ und der Phase $\varphi(\omega)$ in zwei Diagramme
         \end{enumerate}
         \subsection{Ortskurve}
         \begin{enumerate}
