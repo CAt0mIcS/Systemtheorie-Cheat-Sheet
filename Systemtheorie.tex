@@ -473,9 +473,9 @@
 
         \includegraphics{./img/opamp.pdf} \qquad \includegraphics{./img/char/char_opamp.pdf}\\[2em]
         \begin{tabular}{lll}
-            \parbox{3cm}{\textbf{\large ESB I}   \\ negativer Sättigungsbereich \\ $u_{\ir d} < 0$  \\ $u_{\ir out} = - U_{\ir sat}$}    & \parbox{3cm}{\includegraphics[scale = 0.9]{./img/opamp_esb_1.pdf} } \\[4em]
-            \parbox{3cm}{\large \textbf{ESB II}  \\ streng linearer Bereich \\ $u_{\ir d} = 0$ \\ $\abs{ u_{\ir out} } \le U_{\ir sat}$} & \parbox{3cm}{\includegraphics[scale = 0.9]{./img/opamp_esb_2.pdf} } \\[4em]
-            \parbox{3cm}{\textbf{\large ESB III} \\ positiver Sättigungsbereich \\ $u_{\ir d} > 0$  \\ $u_{\ir out} = + U_{\ir sat}$}    & \parbox{3cm}{\includegraphics[scale = 0.9]{./img/opamp_esb_3.pdf} }
+            \parbox{3cm}{\textbf{\large ESB I}   \\ negativer Sättigungsbereich \\ $u_{\ir d} < 0$  \\ $u_{\ir out} = - U_{\ir sat}$} & \parbox{3cm}{\includegraphics[scale = 0.9]{./img/opamp_esb_1.pdf} } \\[4em]
+            \parbox{3cm}{\large \textbf{ESB II}  \\ streng linearer Bereich \\ $u_{\ir d} = 0$ \\ $|u_{\ir out}| \le U_{\ir sat}$}    & \parbox{3cm}{\includegraphics[scale = 0.9]{./img/opamp_esb_2.pdf} } \\[4em]
+            \parbox{3cm}{\textbf{\large ESB III} \\ positiver Sättigungsbereich \\ $u_{\ir d} > 0$  \\ $u_{\ir out} = + U_{\ir sat}$} & \parbox{3cm}{\includegraphics[scale = 0.9]{./img/opamp_esb_3.pdf} }
         \end{tabular}
     }
 
@@ -1455,19 +1455,17 @@
     $h(t) = \frac{d}{dt} y_\sigma(t)$\\
     $h(t) = d\delta (t) + \mathbf{c}^T\exp{(\mathbf{A}t)}\mathbf{b}\sigma(t)$
         \subsection{Steady-State- und Transientenantwort}
-    $\mathbf{x}(t) = \mathbf{x}{\text{trans}}(t) + \mathbf{x}{\text{steady}}(t)$
+        $\mathbf{x}(t) = \mathbf{x}_{\text{trans}}(t) + \mathbf{x}_{\text{steady}}(t)$ \\
+    $\mathbf{y}(t) = \mathbf{y}_{\text{trans}}(t) + \mathbf{y}_{\text{steady}}(t)$
         \subsubsection{Steady-State-Antwort}
         Antwort im eingeschwungenen Zustand \\
-    $\mathbf{x}_{\text{steady}}(t) = \text{Re}\{Y(j\omega)\e^{j\omega t}\}$\\
-    $X_{\text{steady}}(t) = H(j\omega) \cdot U_{\text{in}}$ \\
-    $x(t) = x_{\text{transient}}(t) + x_{\text{steady}}(t)$
+    $\mathbf{y}_{\text{steady}}(t) = \text{Re}\{Y(j\omega)\e^{j\omega t}\}$\\
+    $Y_{\text{steady}}(j\omega) = H(j\omega) \cdot U_{\text{in}}$ \\
         \subsubsection{Transientenantwort}
         Antwort des Systems während des Einschwingzustands. $\rightarrow 0$
         Die Summe der Polstellen von $H(j\omega)$ ist die Transientenantwort.\\
-    $\vec X_{\text{trans}}(p)=(p\ma 1 - \ma A)\underbrace{(\vec x(0) - \vec x'(0))}_{\vec x_{\text{trans}}(0)}$\\
-    $\mathbf{x}_{\text{trans}}(t) = \exp{(\mathbf{A}t)} \cdot \mathbf{x}_{\text{trans}}(0)$ \\
-
-
+        $\mathbf{x}_{\text{trans}}(t)=\exp(\mathbf{A}t)\mathbf{x}(0)$ \\
+    $\mathbf{y}_{\text{trans}}(t)=\sum_{i=1}^{n}c_i\vec v_ie^{\lambda_i t}$ \\
 
         \subsection{Federschwinger}
         Feder mit Federkonstante $k$ an der Decke befestigt mit einer Masse $m$ und Auslenkung $z$ nach unten.
@@ -1570,14 +1568,14 @@
         \section{Analyse dynamischer Systeme im Frequenzbereich}
         \subsection{Laplace-Transformation}
         Für kausale Funktionen mit $f(t) = 0$ für $t < 0$:\\
-    $F(p) = \mathcal L\{f(t)\} = \int_0^\infty f(t) \e^{-pt}dt$ mit $p$: komplexe Frequenz\\
+    $F(s) = \mathcal L\{f(t)\} = \int_0^\infty f(t) \e^{-pt}dt$ mit $p$: komplexe Frequenz\\
         Rücktransformation: \\
-    $f(t) = \mathcal L^{-1}\{F(p)\} = \fr{1}{2\pi j}\int_{\gamma-j\infty}^{\gamma+j\infty} F(p) \e^{-pt}dt$\\
+    $f(t) = \mathcal L^{-1}\{F(s)\} = \fr{1}{2\pi j}\int_{\gamma-j\infty}^{\gamma+j\infty} F(s) \e^{-pt}dt$\\
         \subsubsection{Rechenregeln}
         \begin{itemize}
-        \item Linearität: $\mathcal L\{\alpha f(t) + \beta g(t)\} = \alpha F(p) + \beta G(p)$
-        \item Differentiationssatz: $\mathcal L\{\dot f(t)\} = pF(p) - f(0)$
-        \item Faltung: $\mathcal L\{(a * b)(t)\} = A(p)B(p)$
+        \item Linearität: $\mathcal L\{\alpha f(t) + \beta g(t)\} = \alpha F(s) + \beta G(s)$
+        \item Differentiationssatz: $\mathcal L\{\dot f(t)\} = pF(s) - f(0)$
+        \item Faltung: $\mathcal L\{(a * b)(t)\} = A(s)B(s)$
         \end{itemize}
         \sectionbox{
         \subsubsection{Wichtige Laplace-Transformationen}
@@ -1587,13 +1585,13 @@
         \item $\mathcal L\{\delta(t)\}=1$
         \end{itemize}
         \subsubsection{Allgemeine Lösung im Frequenzraum}
-    $\vec X(p) = \underbrace{(p\ma 1-\ma A)^{-1}\vec x(0)}_{\vec X_{ZI}(p)} + \underbrace{(p\ma 1-\ma A)^{-1}\vec bV(p)}_{\vec X_{ZS}(p)}$\\
+    $\vec X(s) = \underbrace{(p\ma 1-\ma A)^{-1}\vec x(0)}_{\vec X_{ZI}(s)} + \underbrace{(p\ma 1-\ma A)^{-1}\vec bV(s)}_{\vec X_{ZS}(s)}$\\
     $\vec x(t) = \vec x(0)\e^{\ma At} + \int_0^t \e^{\ma A(t-t')}v(t')\vec b dt'$
         }
 
         \subsection{Reduzierte Knotenspannungsanalyse}
         \begin{equation*}
-            \underbrace{\ma Y_k}_{\text{Knotenadmittanzmatrix}}\vec U_k(p)=\vec I_q(p)
+            \underbrace{\ma Y_k}_{\text{Knotenadmittanzmatrix}}\vec U_k(s)=\vec I_q(s)
         \end{equation*}
         \textbf{Eintragen von Reaktanzen}
         \begin{enumerate}
@@ -1606,10 +1604,11 @@
         \subsection{Übertragungsfunktion}
         \sectionbox{
         \emphbox{
-    $H(j\omega ) = H(p) = \mathcal{L}\{h(t)\} = \fr{\text{Ausgang}}{\text{Eingang}}$
+    $H(j\omega ) = H(s) = \mathcal{L}\{h(t)\} = \fr{\text{Ausgang}}{\text{Eingang}}$
         } \\
 
         \begin{itemize}
+        \item Beschreibt die Zero-State-Response
         \item $p_{0,i}$: Nullstellen des Ausgangs
         \item \textbf{Eigenfrequenzen} $p_{\infty, i}$: Nullstellen des Eingangs \\
     $\equalhat$ Polstellen von $H(j\omega)$ \\
@@ -1618,33 +1617,42 @@
         \end{itemize}
 
         \vspace{.5em}
-    $Y(p)=H(p)V(p) \rightarrow y(t)=h(t) * v(t)$ \\
-    $y_{ZS}(t)=\mathcal L\{Y(p)\}$ \\
+    $Y(s)=H(s)V(s) \rightarrow y(t)=h(t) * v(t)$ \\
+    $y_{ZS}(t)=\mathcal L\{Y(s)\}$ \\
     $y_{ZI}(t)=\sum_{i=1}^{n}y_{0,i}e^{p_{\infty,i}}t$
         }
 
-        \textbf{Bestimmung der Differentialgleichung:}\\
-    $H(j\omega) = \frac{U_A}{U_E} = \frac{a_0 + a_1 j\omega + a_2 (j\omega)^2}{e_0 + e_1 j\omega + e_2 (j\omega)^2}$\\
-    $U_A (e_0 + e_1 j\omega + e_2 (j\omega)^2) = U_E  (a_0 + a_1 j\omega + a_2 (j\omega)^2)$\\
-    $e_0 u_a(t) + e_1 \dot{u}_a(t) + e_2 \ddot{u}_a(t) = a_0 u_e(t) + e_1 \dot{u}_e(t) + e_2 \ddot{u}_e(t)$\\
-        3dB-\textbf{Grenzfrequenz:} $\abs{H(j\omega)}^2 = \fr{1}{2}$\\
+        \sectionbox{
+        \subsubsection{3dB-Grenzfrequenz}
+    $|H(j\omega)|^2 = \fr{1}{2} \Longleftrightarrow |\Re{H(j\omega_{\ir gr})}| = |\Im{H(j\omega_{\ir gr})}|$
+        \begin{itemize}
+        \item[] $v(\omega_{\ir gr})=20\log_{10}\frac{1}{\sqrt{2}}=-3dB$
+        \end{itemize}
+
+        }
+
         \textbf{Stabilität:} Re$\{p_{\infty,i}\} < 0$ \quad $\forall i$\\
 
         \sectionbox{
         Darstellung einer Schaltung in Abhängigkeit der Frequenz\\
-    $H(j\omega) = \abs{H(j\omega)} \exp (j\angle H(j\omega))$\\
+    $H(j\omega) = |H(j\omega)| \exp (j\angle H(j\omega))$\\
     $\varphi (\omega) = \angle H(j\omega) = \begin{cases}
         \arctan\frac{\text{Im}\{H(j\omega)\}}{\text{Re}\{H(j\omega)\}}     & $für $\text{Re}\{H(j\omega)\} \geq 0 \\
         \arctan\frac{\text{Im}\{H(j\omega)\}}{\text{Re}\{H(j\omega)\}}+\pi & $für $\text{Re}\{H(j\omega)\} < 0    \\
     \end{cases}$\\
-        logarithmierte Darstellung des Betrages: $v(\omega) = 20 \log_{10} \abs{H(j\omega)}$\\
+        logarithmierte Darstellung des Betrages: $v(\omega) = 20 \log_{10} |H(j\omega)|$\\
         }
+
+        \textbf{Serienschaltung von Übertragungsfunktionen} \\
+    $H(s)=H_1(s)H_2(s) \rightarrow v(\omega) = v_1(\omega) + v_2(\omega), \\ \varphi(\omega) = \varphi_1(\omega) + \varphi_2(\omega)$ \\
+        \textbf{Parallelschaltung von Übertragungsfunktionen} \\
+    $H(s)=H_1(s) + H_2(s)$
 
         \subsection{Bodediagramm}
         %TODO Graph, verschiedene Typen (siehe Tut Teutsch)
         \begin{enumerate}
         \item Übertragungsfunktion faktorisieren\\
-    $H(jw) = K \cdot \prod_{n=1}^n \left(x_n+\frac{jw}{w_n}\right)^{z_n}$\qquad$z_n \in \mathbb{Z} \ \{0\}$\\
+    $H(jw) = K \cdot \prod_{n=1}^n \left(x_n+\frac{jw}{w_n}\right)^{z_n}$\qquad$z_n \in \mathbb{Z} \setminus \{0\}$\\
         \item Logarithmierte Beträge der einzelnen Faktoren aufstellen\\
         \quad a) Konstanter Faktor: $y = 20\cdot\log_{10}(K)$dB\\
         \quad b) Falls $x_n = 0$: Gerade durch $(\omega_n, 0$dB$)$\\
@@ -1656,9 +1664,10 @@
         \end{enumerate}
         \subsection{Ortskurve}
         \begin{enumerate}
-            \item Bestimmung von diversen Werten der Übertragungsfunktion
-            \item Eintragen in der komplexen Ebene
-            \item Punkte stetig verbinden
+        \item Bestimmung von diversen Werten der Übertragungsfunktion
+        \item Eintragen in der komplexen Ebene
+        \item Punkte stetig verbinden
+        \item Umlaufrichtung von Punkten mit $\omega = 0$ zu Punkten mit $\omega \rightarrow \infty$
         \end{enumerate}
         \parbox{.6\linewidth}{
             \includegraphics[width=\linewidth]{img/ortskurve-r}}
@@ -1674,7 +1683,9 @@
         \subsection{Schwingkreis}
         Resonanzfrequenz: $\omega_0 = \sqrt{\frac{1}{LC}}$\\
         Gütefaktor: $Q = \frac{\omega_0C}{G} = \frac{1}{\omega_0LG} = \frac{\sqrt{C}}{G\sqrt{L}}$\\
-        Eigenfrequenzen: $p_{\infty,1,2} = -\frac{\omega_0}{2Q}\pm \frac{\omega_0}{2Q}\sqrt{1-4Q^2}$
+        Eigenfrequenzen: $p_{\infty,1,2} = -\frac{\omega_0}{2Q}\pm \frac{\omega_0}{2Q}\sqrt{1-4Q^2}$ \\
+    $p_{\infty,1}p_{\infty,2}=\omega_0^2$ \\
+        Bandbreite: $\frac{\omega_0}{Q}=|\omega_2 - \omega_1|$
         \section{SPICE}
         \renewcommand{\t}{\texttt}
         \subsection{Bauteile}
